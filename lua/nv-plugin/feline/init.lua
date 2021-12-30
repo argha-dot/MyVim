@@ -51,7 +51,7 @@ feline.setup {
       '^fugitiveblame$',
       '^qf$',
       '^help$',
-      '^NeogitStatus$',
+      '^Neogit',
       '^alpha$'
     },
     buftypes = {
