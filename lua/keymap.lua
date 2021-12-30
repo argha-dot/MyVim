@@ -55,6 +55,7 @@ utils.map('n', '<Leader><Leader>',   '<C-^>', {noremap = true, silent = true})
 -- Deleting and Pasting
 utils.map('n', 'ss',        '"_dd', {noremap = true, silent = true})
 utils.map('n', 's',         '"_d', {noremap = true, silent = true})
+utils.map('n', 'S',         '"_D', {noremap = true, silent = true})
 utils.map('n', '<Leader>p', '"0p', {noremap = true, silent = true})
 utils.map('n', '<Leader>P', '"0p', {noremap = true, silent = true})
 
