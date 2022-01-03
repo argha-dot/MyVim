@@ -4,11 +4,7 @@ if not status_ok then
 end
 
 lsp_installer.on_server_ready(function(server)
-  -- local opts = {}
-  local opts = {
-    on_attach = require("lsp.handlers").on_attach,
-    capabilities = require("lsp.handlers").capabilities,
-  }
+  local opts = {}
   -- (optional) Customize the options passed to the server
   -- if server.name == "tsserver" then
   --     opts.root_dir = function() ... end

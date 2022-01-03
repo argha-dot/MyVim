@@ -1,18 +1,20 @@
 local utils = require'utils'
+local opts = {noremap = true, silent = true}
 
-utils.map('n', '<Space>',   '<NOP>', {noremap = true, silent = true})
+
+utils.map('n', '<Space>',   '<NOP>', opts)
 
 -- Leader Key
 vim.g.mapleader = ' '
 
 
 -- No Highlight
-utils.map('n', '<Esc>',     ':noh<CR>', {noremap = true, silent = true})
+utils.map('n', '<Esc>',     ':noh<CR>', opts)
 
 
 -- I hate Esc
-utils.map('i', '<C-c>',     '<esc>', {noremap = true, silent = true})
-utils.map('v', '<C-c>',     '<esc>', {noremap = true, silent = true})
+utils.map('i', '<C-c>',     '<esc>', opts)
+utils.map('v', '<C-c>',     '<esc>', opts)
 
 
 -- Better buffer moving
@@ -40,43 +42,44 @@ utils.map('n', '<M-k>',     '<cmd>resize -2<CR>', {silent = true})
 
 
 -- Better indenting
-utils.map('v', '<',         '<gv', {noremap = true, silent = true})
-utils.map('v', '>',         '>gv', {noremap = true, silent = true})
+utils.map('v', '<',         '<gv', opts)
+utils.map('v', '>',         '>gv', opts)
 
-utils.map('n', '<',         '<<', {noremap = true, silent = true})
-utils.map('n', '>',         '>>', {noremap = true, silent = true})
+utils.map('n', '<',         '<<', opts)
+utils.map('n', '>',         '>>', opts)
 
 -- TAB and SHIFT TAB will cycle through buffers
-utils.map('n', '<TAB>',     ':bnext<CR>', {noremap = true, silent = true})
-utils.map('n', '<S-TAB>',   ':bprev<CR>', {noremap = true, silent = true})
-utils.map('n', '<Leader><Leader>',   '<C-^>', {noremap = true, silent = true})
+utils.map('n', '<TAB>',     ':bnext<CR>', opts)
+utils.map('n', '<S-TAB>',   ':bprev<CR>', opts)
+utils.map('n', '<Leader><Leader>',   '<C-^>', opts)
 
 
 -- Deleting and Pasting
-utils.map('n', 'ss',        '"_dd', {noremap = true, silent = true})
-utils.map('n', 's',         '"_d', {noremap = true, silent = true})
-utils.map('n', 'S',         '"_D', {noremap = true, silent = true})
-utils.map('n', '<Leader>p', '"0p', {noremap = true, silent = true})
-utils.map('n', '<Leader>P', '"0p', {noremap = true, silent = true})
+utils.map('n', 'ss',        '"_dd', opts)
+utils.map('n', 's',         '"_d', opts)
+utils.map('n', 'S',         '"_D', opts)
+utils.map('n', '<Leader>p', '"0p', opts)
+utils.map('n', '<Leader>P', '"0p', opts)
 
 
 -- Moving text up and down in visual selection
-utils.map('v', '<S-up>',    ":m-2<CR>gv=gv", {noremap = true, silent = true})
-utils.map('v', '<S-down>',  ":m+1<CR>gv=gv", {noremap = true, silent = true})
-utils.map('v', '<S-k>',     ":m-2<CR>gv=gv", {noremap = true, silent = true})
-utils.map('v', '<S-j>',     ":m+1<CR>gv=gv", {noremap = true, silent = true})
+utils.map('v', '<S-up>',    ":m-2<CR>gv=gv", opts)
+utils.map('v', '<S-down>',  ":m+1<CR>gv=gv", opts)
+utils.map('v', '<S-k>',     ":m-2<CR>gv=gv", opts)
+utils.map('v', '<S-j>',     ":m+1<CR>gv=gv", opts)
 
-utils.map('n', '<S-up>',    ":m-2<cr>==", {noremap = true, silent = true})
-utils.map('n', '<S-down>',  ":m+1<cr>==", {noremap = true, silent = true})
-utils.map('n', '<Leader>k', ':m-2<cr>==', {noremap = true, silent = true})
-utils.map('n', '<Leader>j', ':m+<cr>==', {noremap = true, silent = true})
+utils.map('n', '<S-up>',    ":m-2<cr>==", opts)
+utils.map('n', '<S-down>',  ":m+1<cr>==", opts)
+utils.map('n', '<Leader>k', ':m-2<cr>==', opts)
+utils.map('n', '<Leader>j', ':m+<cr>==', opts)
 
+utils.map('v', 'p', '"_dP', opts)
 
 -- Start and end of line
-utils.map('n', '<S-left>',  "^", {noremap = true, silent = true})
-utils.map('n', '<S-Right>', "$", {noremap = true, silent = true})
-utils.map('n', '<S-h>',     "^", {noremap = true, silent = true})
-utils.map('n', '<S-l>',     "$", {noremap = true, silent = true})
+utils.map('n', '<S-left>',  "^", opts)
+utils.map('n', '<S-Right>', "$", opts)
+utils.map('n', '<S-h>',     "^", opts)
+utils.map('n', '<S-l>',     "$", opts)
 
 vim.cmd [[
     command! Vimrc :vs $MYVIMRC

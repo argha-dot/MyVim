@@ -1,5 +1,5 @@
--- local components = require("nv-plugin.feline.noicon")
-local comps = require("nv-plugin.feline.components")
+-- local components = require("plugin.feline.noicon")
+local comps = require("plugins.feline.components")
 
 
 local status_ok, feline = pcall(require, "feline")

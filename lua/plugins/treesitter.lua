@@ -29,3 +29,6 @@ configs.setup {
     -- termcolors = {} -- table of colour name strings
   }
 }
+
+vim.o.foldmethod = 'expr'
+vim.o.foldexpr = 'nvim_treesitter#foldexpr()'

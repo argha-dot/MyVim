@@ -2,48 +2,6 @@ local cmd = vim.cmd
 local o = vim.o
 local indent = 2
 
-cmd [[
-	set path+=**
-  set whichwrap+=<,>,[,],h,l"
-	autocmd InsertEnter * norm zz
-]]
-
--- Markdown and LaTeX Settings
-cmd [[
-  autocmd BufNewFile,BufRead *.md set filetype=markdown
-  autocmd BufNewFile,BufRead *.tex set filetype=tex
-
-  augroup WrapLineInMDFile
-    autocmd!
-    autocmd FileType markdown setlocal linebreak wrap 
-    autocmd FileType markdown set spell
-  augroup END
-
-  augroup LaTeXStuff
-    autocmd!
-    autocmd FileType tex setlocal linebreak wrap 
-    autocmd FileType tex set spell
-  augroup END
-]]
-
-
-cmd [[
-  augroup highlight_yank
-    autocmd!
-    au TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=250}
-  augroup END
-]]
-
-cmd [[
-  augroup no_relative_for_insert
-    autocmd!
-    au InsertEnter * set norelativenumber
-    au InsertLeave * set relativenumber
-  augroup END
-]]
-
--- gg=G''
-
 o.swapfile = false
 o.backup = false
 o.writebackup = false
@@ -60,6 +18,7 @@ o.splitbelow = true
 
 o.cmdheight = 1 -- Neovim commandline space
 o.pumheight = 10 -- Pop-up menu height
+o.colorcolumn = '80'
 
 o.wildmenu = true
 
@@ -84,7 +43,8 @@ o.fileencoding = "utf-8"
 o.background = "dark"
 o.guicursor = ""
 o.hlsearch = true -- Highlight in real time
--- o.
+o.showmode = false
+-- o.foldlevelstart = 99
 
 o.cursorline = true
 o.wrap = false

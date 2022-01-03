@@ -53,8 +53,8 @@ require'nvim-tree'.setup {
     mappings = {
       custom_only = false,
       list = {
-          { key = "<S-v>", cb = tree_cb("vsplit")}
-        }
+        { key = "<S-v>", cb = tree_cb("vsplit")}
+      }
     },
     number = false,
     relativenumber = false,
@@ -66,6 +66,36 @@ require'nvim-tree'.setup {
   },
   quit_on_open = 0,
   git_hl = 1,
+  disable_window_picker = 0,
+  root_folder_modifier = ":t",
+  show_icons = {
+    git = 1,
+    folders = 1,
+    files = 1,
+    folder_arrows = 1,
+    tree_width = 30,
+  },
+}
+
+vim.g.nvim_tree_icons = {
+  default = "",
+  symlink = "",
+  git = {
+    unstaged = "",
+    staged = "S",
+    unmerged = "",
+    renamed = "➜",
+    deleted = "",
+    untracked = "U",
+    ignored = "◌",
+  },
+  folder = {
+    default = "",
+    open = "",
+    empty = "",
+    empty_open = "",
+    symlink = "",
+  },
 }
 
 vim.api.nvim_set_keymap('n', '<C-b>', '<cmd>lua require"utils.custom".SideToggle()<CR>', {noremap = true, silent = true})

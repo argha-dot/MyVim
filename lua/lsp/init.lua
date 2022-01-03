@@ -5,5 +5,8 @@ end
 
 require "lsp.null-ls"
 require 'lsp.lsp-installer'
--- require 'lsp.config'
+require 'lsp.config'
+require 'lsp.nlsp-settings'
 require('lsp.handlers').setup()
+
+require 'lsp.rls'
