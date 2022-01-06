@@ -7,7 +7,6 @@ utils.map('n', '<Space>',   '<NOP>', opts)
 -- Leader Key
 vim.g.mapleader = ' '
 
-
 -- No Highlight
 utils.map('n', '<Esc>',     ':noh<CR>', opts)
 
