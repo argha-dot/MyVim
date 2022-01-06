@@ -5,6 +5,19 @@ if not status_ok then
 	return
 end
 
+local function osinfo()
+  local os = vim.bo.fileformat:upper()
+  local shell
+  if os == 'DOS' then
+    shell = [[powershell]]
+  else 
+    shell = vim.o.shell
+  end
+
+  return shell
+end
+
+
 toggleterm.setup({
 	size = 20,
 	open_mapping = [[<C-\>]],
@@ -17,7 +30,7 @@ toggleterm.setup({
 	persist_size = true,
 	direction = "float",
 	close_on_exit = true,
-	shell = [[powershell]],
+	shell = osinfo(),
 	float_opts = {
 		border = "curved",
 		winblend = 0,
