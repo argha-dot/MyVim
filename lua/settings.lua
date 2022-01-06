@@ -18,7 +18,7 @@ o.splitbelow = true
 
 o.cmdheight = 1 -- Neovim commandline space
 o.pumheight = 10 -- Pop-up menu height
-o.colorcolumn = '80'
+-- o.colorcolumn = '80'
 
 o.wildmenu = true
 

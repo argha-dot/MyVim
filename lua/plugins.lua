@@ -57,7 +57,6 @@ return packer.startup(function(use)
   use 'norcalli/nvim-colorizer.lua'
   use 'sunjon/shade.nvim'
   use 'folke/zen-mode.nvim'
-  use 'karb94/neoscroll.nvim'
 
   -- Lines
   use 'feline-nvim/feline.nvim'
