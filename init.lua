@@ -1,7 +1,10 @@
+require 'plugins.impatient'
+
 require 'settings'
 require 'keymap'
 require 'plugins'
 require 'colorscheme'
+require 'autocmds'
 
 require 'plugins.alpha'
 require 'plugins.autopairs'
@@ -12,7 +15,6 @@ require 'plugins.comment'
 require 'plugins.emmet'
 require 'plugins.feline'
 require 'plugins.gitsigns'
-require 'plugins.impatient'
 require 'plugins.indent-line'
 require 'plugins.neogit'
 require 'plugins.quick-scope'
@@ -25,4 +27,3 @@ require 'plugins.zen-mode'
 
 require 'lsp'
 
-require 'autocmds'
