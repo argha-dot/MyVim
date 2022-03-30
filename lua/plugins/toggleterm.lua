@@ -9,7 +9,7 @@ local function osinfo()
   local os = vim.bo.fileformat:upper()
   local shell
   if os == 'DOS' then
-    shell = [[powershell]]
+    shell = [[ powershell.exe ]]
   else 
     shell = vim.o.shell
   end
@@ -19,7 +19,7 @@ end
 
 
 toggleterm.setup({
-	size = 20,
+	size = 10,
 	open_mapping = [[<C-\>]],
 	hide_numbers = true,
 	shade_filetypes = {},
@@ -30,7 +30,7 @@ toggleterm.setup({
 	persist_size = true,
 	direction = "horizontal",
 	close_on_exit = true,
-	shell = osinfo(),
+	-- shell = osinfo(),
 	float_opts = {
 		border = "curved",
 		winblend = 0,
@@ -44,7 +44,7 @@ toggleterm.setup({
 
 function _G.set_terminal_keymaps()
   local opts = {noremap = true}
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-c>', [[<C-\><C-n>]], opts)
+  vim.api.nvim_buf_set_keymap(0, 't', '<C-t>', [[<C-\><C-n>]], opts)
   vim.api.nvim_buf_set_keymap(0, 't', '<C-left>', [[<C-\><C-n><C-W>h]], opts)
   vim.api.nvim_buf_set_keymap(0, 't', '<C-right>', [[<C-\><C-n><C-W>l]], opts)
   vim.api.nvim_buf_set_keymap(0, 't', '<C-down>', [[<C-\><C-n><C-W>j]], opts)
@@ -52,32 +52,3 @@ function _G.set_terminal_keymaps()
 end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
-
-local Terminal = require('toggleterm.terminal').Terminal
-local _PYTHON_SHELL = Terminal:new({ cmd = "python", hidden = true })
-
-function _PYTHON_TOGGLE()
-  _PYTHON_SHELL:toggle()
-end
-
-local _LAZY_GIT = Terminal:new({
-  cmd = "lazygit",
-  dir = "git_dir",
-  direction = "float",
-  float_opts = {
-    border = "double",
-  },
-  -- function to run on opening the terminal
-  on_open = function(term)
-    vim.cmd("startinsert!")
-    vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", {noremap = true, silent = true})
-  end,
-  -- function to run on closing the terminal
-  on_close = function(term)
-    vim.cmd("Closing terminal")
-  end,
-})
-
-function _LAZYGIT_TOGGLE()
-  _LAZY_GIT:toggle()
-end

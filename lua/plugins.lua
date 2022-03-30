@@ -44,7 +44,7 @@ return packer.startup(function(use)
     run = ':TSUpdate',
   }
   use 'JoosepAlviste/nvim-ts-context-commentstring'
-  use 'p00f/nvim-ts-rainbow'
+  use 'windwp/nvim-ts-autotag'
 
   -- File Tree
   use "kyazdani42/nvim-tree.lua"
@@ -58,7 +58,8 @@ return packer.startup(function(use)
   use 'folke/zen-mode.nvim'
 
   -- Lines
-  use 'feline-nvim/feline.nvim'
+  use 'nvim-lualine/lualine.nvim'
+  -- use 'feline-nvim/feline.nvim'
   use 'romgrk/barbar.nvim'
 
   -- Editing
@@ -69,12 +70,14 @@ return packer.startup(function(use)
   -- use 'tpope/vim-sleuth'
   use 'folke/which-key.nvim'
   use 'unblevable/quick-scope'
+  use 'nacro90/numb.nvim'
 
   -- LSP
   use 'neovim/nvim-lspconfig' -- enable LSP
   use 'williamboman/nvim-lsp-installer' -- simple to use language server installer
-  use 'tamago324/nlsp-settings.nvim' -- language server settings defined in json for
-  use 'jose-elias-alvarez/null-ls.nvim'
+  -- use 'glepnir/lspsaga.nvim'
+  -- use 'tamago324/nlsp-settings.nvim' -- language server settings defined in json for
+  -- use 'jose-elias-alvarez/null-ls.nvim'
 
   -- CMP
   use 'hrsh7th/cmp-nvim-lsp'

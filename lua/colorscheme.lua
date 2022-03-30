@@ -13,7 +13,10 @@ vim.cmd[[
   syntax on
   colorscheme gruvbox
 
-  hi CursorLine cterm=underline ctermfg=NONE gui=NONE guifg=NONE ctermbg=NONE guibg=NONE
   hi clear SignColumn
 ]]
 
+vim.cmd [[
+  hi clear CursorLine
+  hi CursorLine cterm=underline gui=underline ctermfg=NONE guifg=NONE ctermbg=NONE guibg=NONE
+]]

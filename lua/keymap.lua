@@ -10,6 +10,8 @@ vim.g.mapleader = ' '
 -- No Highlight
 utils.map('n', '<Esc>',     ':noh<CR>', opts)
 
+-- Break Lines
+utils.map('n', 'Z', 'R<CR><Esc>', opts)
 
 -- I hate Esc
 utils.map('i', '<C-c>',     '<esc>', opts)
@@ -81,6 +83,5 @@ utils.map('n', '<S-h>',     "^", opts)
 utils.map('n', '<S-l>',     "$", opts)
 
 vim.cmd [[
-    command! Vimrc :vs $MYVIMRC
+  command! Vimrc :vs $MYVIMRC
 ]]
-
