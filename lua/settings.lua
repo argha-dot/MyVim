@@ -44,7 +44,7 @@ o.background = "dark"
 o.guicursor = ""
 o.hlsearch = true -- Highlight in real time
 o.showmode = false
-o.foldlevelstart = 99
+-- o.foldlevelstart = 99
 
 o.cursorline = true
 o.wrap = false
@@ -61,3 +61,11 @@ o.relativenumber = true
 o.numberwidth = 2
 o.signcolumn = "yes"
 
+if (vim.o.shell == 'DOS') then
+  vim.cmd([[
+    set shell=powershell
+    set shellcmdflag=-command
+    set shellquote=\"
+    set shellxquote=
+  ]])
+end

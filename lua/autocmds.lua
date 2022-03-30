@@ -26,19 +26,6 @@ cmd [[
 
 -- Fold shit
 cmd [[
-  set foldtext=MyFoldText()
-  function MyFoldText()
-    let nucolwidth = &fdc + &number*&numberwidth
-    let winwd = winwidth(0) - nucolwidth - 5
-    let foldlinecount = foldclosedend(v:foldstart) - foldclosed(v:foldstart) + 1
-    let prefix = " _______>>> "
-    let fdnfo = prefix . string(v:foldlevel) . "," . string(foldlinecount)
-    let line =  strpart(getline(v:foldstart), 0 , winwd - len(fdnfo))
-    let fillcharcount = winwd - len(line) - len(fdnfo)
-    return line . repeat(" ",fillcharcount) . fdnfo
-  endfunction
-
-
   augroup OpenAllFoldsOnFileOpen
     autocmd!
     au BufNewFile,BufRead * normal zR
@@ -61,4 +48,3 @@ cmd [[
     au TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=250}
   augroup END
 ]]
-
