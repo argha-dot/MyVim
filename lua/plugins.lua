@@ -59,8 +59,8 @@ return packer.startup(function(use)
 
   -- Lines
   use 'nvim-lualine/lualine.nvim'
-  -- use 'feline-nvim/feline.nvim'
   use 'romgrk/barbar.nvim'
+  -- use 'feline-nvim/feline.nvim'
 
   -- Editing
   use 'numToStr/Comment.nvim'
