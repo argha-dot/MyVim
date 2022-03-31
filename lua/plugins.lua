@@ -71,9 +71,14 @@ return packer.startup(function(use)
   use 'christianchiarulli/nvcode-color-schemes.vim'
   use {
     'lukas-reineke/indent-blankline.nvim',
+    event = { "BufRead", "BufNewFile" },
     config = function() require("plugins.indent-line") end
   }
-  use 'norcalli/nvim-colorizer.lua'
+  use {
+    'norcalli/nvim-colorizer.lua',
+    ft = { 'html','css','sass','vim','typescript','typescriptreact'},
+    config = function() require("plugins.colorizer") end
+  }
   use {
     'folke/zen-mode.nvim',
     cmd = { "ZenMode" },
@@ -86,13 +91,38 @@ return packer.startup(function(use)
   -- use 'feline-nvim/feline.nvim'
 
   -- Editing
-  use 'numToStr/Comment.nvim'
-  use 'windwp/nvim-autopairs'
-  use 'tpope/vim-repeat'
-  use 'tpope/vim-surround'
-  use 'folke/which-key.nvim'
-  use 'unblevable/quick-scope'
-  use 'nacro90/numb.nvim'
+  use {
+    'numToStr/Comment.nvim',
+    event = { "BufRead", "BufNewFile" },
+    config = function () require("plugins.comment") end
+  }
+  use {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = function () require("plugins.autopairs") end
+  }
+  use {
+    'tpope/vim-repeat',
+    event = { "BufRead", "BufNewFile" },
+  }
+  use {
+    'tpope/vim-surround',
+    event = { "BufRead", "BufNewFile" },
+  }
+  use {
+    'folke/which-key.nvim',
+    keys = { "<Leader>" },
+    -- event = { "BufRead", "BufNewFile" },
+    config = function () require("plugins.which-key") end
+  }
+  use {
+    'unblevable/quick-scope',
+    config = function() require("plugins.quick-scope") end
+  }
+  use {
+    'nacro90/numb.nvim',
+    config = function() require("plugins.numb") end
+  }
   -- use 'tpope/vim-sleuth'
 
   -- LSP
@@ -135,7 +165,12 @@ return packer.startup(function(use)
   }
 
   -- Terminal
-  use 'akinsho/toggleterm.nvim'
+  use {
+    'akinsho/toggleterm.nvim',
+    keys = { [[ <C-\> ]] },
+    cmd = { "ToggleTerm", "ToggleTermToggleAll" },
+    config = function () require("plugins.toggleterm") end
+  }
 
   -- Git
   use {
@@ -145,7 +180,8 @@ return packer.startup(function(use)
   }
   use {
     'TimUntersberger/neogit',
-    cmd = { "Git", "Neogit" }
+    cmd = { "Git", "Neogit" },
+    config = function() require("plugins.neogit") end
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
