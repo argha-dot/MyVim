@@ -61,7 +61,7 @@ o.relativenumber = true
 o.numberwidth = 2
 o.signcolumn = "yes"
 
-if (vim.o.shell == 'DOS') then
+if (vim.o.shell == 'cmd.exe') then
   vim.cmd([[
     set shell=powershell
     set shellcmdflag=-command

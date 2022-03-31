@@ -33,11 +33,11 @@ require('Comment').setup({
   },
   extra = {
     ---Add comment on the line above
-    above = '<leader>cO',
+    above = 'gcO',
     ---Add comment on the line below
-    below = '<leader>co',
+    below = 'gco',
     ---Add comment at the end of line
-    eol = '<leader>cA',
+    eol = 'gcA',
   },
 })
 

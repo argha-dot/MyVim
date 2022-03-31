@@ -6,6 +6,7 @@ require 'plugins'
 require 'colorscheme'
 require 'autocmds'
 require 'gui'
+require 'disable'
 
 require 'plugins.alpha'
 require 'plugins.autopairs'
