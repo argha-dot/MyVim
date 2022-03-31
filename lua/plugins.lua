@@ -47,15 +47,38 @@ return packer.startup(function(use)
   use 'windwp/nvim-ts-autotag'
 
   -- File Tree
-  use "kyazdani42/nvim-tree.lua"
+  use {
+    "kyazdani42/nvim-tree.lua",
+    keys = {"<C-b>"},
+    cmd = {
+      "NvimTreeToggle",
+      "NvimTreeOpen",
+      "NvimTreeClose",
+      "NvimTreeFocus",
+      "NvimTreeFindFileToggle",
+      "NvimTreeResize",
+      "NvimTreeCollapse",
+      "NvimTreeCollapseKeepBuffers",
+      "NvimTreeRefresh",
+      "NvimTreeFindFile"
+    },
+    config = function() require("plugins.tree") end
+  }
 
   -- Visual Stuff
   use 'kyazdani42/nvim-web-devicons'
   use 'goolord/alpha-nvim'
   use 'christianchiarulli/nvcode-color-schemes.vim'
-  use 'lukas-reineke/indent-blankline.nvim'
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function() require("plugins.indent-line") end
+  }
   use 'norcalli/nvim-colorizer.lua'
-  use 'folke/zen-mode.nvim'
+  use {
+    'folke/zen-mode.nvim',
+    cmd = { "ZenMode" },
+    config = function() require("plugins.zen-mode") end
+  }
 
   -- Lines
   use 'nvim-lualine/lualine.nvim'
@@ -67,14 +90,29 @@ return packer.startup(function(use)
   use 'windwp/nvim-autopairs'
   use 'tpope/vim-repeat'
   use 'tpope/vim-surround'
-  -- use 'tpope/vim-sleuth'
   use 'folke/which-key.nvim'
   use 'unblevable/quick-scope'
   use 'nacro90/numb.nvim'
+  -- use 'tpope/vim-sleuth'
 
   -- LSP
-  use 'neovim/nvim-lspconfig' -- enable LSP
-  use 'williamboman/nvim-lsp-installer' -- simple to use language server installer
+  use {
+    'neovim/nvim-lspconfig',
+    event = "BufReadPre",
+    config =  function () require("lsp") end
+  } -- enable LSP
+  use {
+    'williamboman/nvim-lsp-installer',
+    cmd = {
+      "LspInstall",
+      "LspInstallInfo",
+      "LspUninstall",
+      "LspUninstallAll",
+      "LspInstallLog",
+      "LspPrintInstalled",
+    },
+    config = function () require("lsp.lsp-installer") end
+  } -- simple to use language server installer
   -- use 'glepnir/lspsaga.nvim'
   -- use 'tamago324/nlsp-settings.nvim' -- language server settings defined in json for
   -- use 'jose-elias-alvarez/null-ls.nvim'
@@ -90,14 +128,25 @@ return packer.startup(function(use)
   -- Snippets
   use 'L3MON4D3/LuaSnip' --snippet engine
   use 'rafamadriz/friendly-snippets' -- a bunch of snippets to use
-  use 'mattn/emmet-vim'
+  use {
+    'mattn/emmet-vim',
+    event = "InsertEnter",
+    config = function () require("plugins.emmet") end
+  }
 
   -- Terminal
   use 'akinsho/toggleterm.nvim'
 
   -- Git
-  use 'lewis6991/gitsigns.nvim'
-  use 'TimUntersberger/neogit'
+  use {
+    'lewis6991/gitsigns.nvim',
+    event = { "BufRead", "BufNewFile" },
+    config = function() require("plugins.gitsigns") end
+  }
+  use {
+    'TimUntersberger/neogit',
+    cmd = { "Git", "Neogit" }
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
