@@ -6,9 +6,8 @@ if not status_ok then
 end
 
 local function osinfo()
-  local os = vim.bo.fileformat:upper()
   local shell
-  if os == 'DOS' then
+  if vim.o.shell == 'cmd.exe' then
     shell = [[ powershell.exe ]]
   else 
     shell = vim.o.shell
@@ -30,7 +29,7 @@ toggleterm.setup({
 	persist_size = true,
 	direction = "horizontal",
 	close_on_exit = true,
-	-- shell = osinfo(),
+	shell = osinfo(),
 	float_opts = {
 		border = "curved",
 		winblend = 0,

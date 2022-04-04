@@ -21,7 +21,7 @@ end
 
 lualine.setup {
   options = {
-    theme = 'gruvbox_dark',
+    theme = 'codedark',
     component_separators = {
       left = '│',
       right = '│'

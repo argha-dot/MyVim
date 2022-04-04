@@ -2,20 +2,17 @@ vim.o.termguicolors = true
 vim.o.background = "dark"
 
 vim.cmd[[
+  syntax on
+  colorscheme nvcode
+
   if (has("autocmd") && !has("gui_running"))
     augroup colorset
       autocmd!
-      autocmd ColorScheme * highlight Normal ctermbg=NONE
+      autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
     augroup END
   endif
 
-  syntax on
-  colorscheme gruvbox
-
   hi clear SignColumn
-]]
-
-vim.cmd [[
   hi clear CursorLine
-  hi CursorLine cterm=underline gui=underline ctermfg=NONE guifg=NONE ctermbg=NONE guibg=NONE
+  hi Normal ctermbg=NONE guibg=NONE
 ]]

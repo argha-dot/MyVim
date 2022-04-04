@@ -61,11 +61,11 @@ o.relativenumber = true
 o.numberwidth = 2
 o.signcolumn = "yes"
 
-if (vim.o.shell == 'cmd.exe') then
-  vim.cmd([[
-    set shell=powershell
-    set shellcmdflag=-command
-    set shellquote=\"
-    set shellxquote=
-  ]])
-end
+-- if (vim.o.shell == 'cmd.exe') then
+--   vim.cmd([[
+--     set shell=powershell
+--     set shellcmdflag=-command
+--     set shellquote=\"
+--     set shellxquote=
+--   ]])
+-- end

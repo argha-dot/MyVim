@@ -33,22 +33,32 @@ return packer.startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'lewis6991/impatient.nvim'
   use 'antoinemadec/FixCursorHold.nvim'
+  use 'nathom/filetype.nvim'
 
   -- Telescope
-  use 'nvim-lua/plenary.nvim'
-  use 'nvim-telescope/telescope.nvim'
+  use { 'nvim-lua/plenary.nvim' }
+  use { 'nvim-telescope/telescope.nvim' }
 
   -- TreeSitter
   use {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
+    after = 'telescope.nvim',
+    event = { 'BufRead', 'BufNewFile' },
+    -- run = ':TSUpdate',
+    config = function() require("plugins.treesitter") end
   }
-  use 'JoosepAlviste/nvim-ts-context-commentstring'
-  use 'windwp/nvim-ts-autotag'
+  use {
+    'JoosepAlviste/nvim-ts-context-commentstring',
+    after = 'nvim-treesitter',
+  }
+  use {
+    'windwp/nvim-ts-autotag',
+    after = 'nvim-treesitter',
+  }
 
   -- File Tree
   use {
-    "kyazdani42/nvim-tree.lua",
+    'kyazdani42/nvim-tree.lua',
     keys = {"<C-b>"},
     cmd = {
       "NvimTreeToggle",
@@ -67,7 +77,10 @@ return packer.startup(function(use)
 
   -- Visual Stuff
   use 'kyazdani42/nvim-web-devicons'
-  use 'goolord/alpha-nvim'
+  use {
+    'goolord/alpha-nvim',
+    config = function() require("plugins.alpha") end
+  }
   use 'christianchiarulli/nvcode-color-schemes.vim'
   use {
     'lukas-reineke/indent-blankline.nvim',
@@ -86,8 +99,14 @@ return packer.startup(function(use)
   }
 
   -- Lines
-  use 'nvim-lualine/lualine.nvim'
-  use 'romgrk/barbar.nvim'
+  use {
+    'nvim-lualine/lualine.nvim',
+    config = function() require("plugins.lualine") end
+  }
+  use {
+    'romgrk/barbar.nvim',
+    config = function() require("plugins.barbar") end
+  }
   -- use 'feline-nvim/feline.nvim'
 
   -- Editing
@@ -122,6 +141,16 @@ return packer.startup(function(use)
   use {
     'nacro90/numb.nvim',
     config = function() require("plugins.numb") end
+  }
+  use {
+    "AckslD/nvim-neoclip.lua",
+    requires = {
+      -- {'tami5/sqlite.lua', module = 'sqlite'},
+      {'nvim-telescope/telescope.nvim'},
+    },
+    config = function() require('plugins.neoclip') end,
+    -- after = 'telescope.nvim',
+    -- cmd = { "Telescope" }
   }
   -- use 'tpope/vim-sleuth'
 
