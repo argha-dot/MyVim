@@ -213,6 +213,9 @@ return packer.startup(function(use)
     config = function() require("plugins.neogit") end
   }
 
+  -- Language specific plugins
+  use 'lervag/vimtex'
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

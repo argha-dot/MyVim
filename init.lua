@@ -7,6 +7,7 @@ require 'autocmds'
 require 'gui'
 require 'disable'
 require 'colorscheme'
+require 'scratch'
 
 require 'plugins.cmp'
 require 'plugins.telescope'
