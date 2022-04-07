@@ -15,4 +15,5 @@ vim.cmd[[
   hi clear SignColumn
   hi clear CursorLine
   hi Normal ctermbg=NONE guibg=NONE
+  hi CursorLine cterm=underline gui=underline
 ]]

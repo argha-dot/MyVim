@@ -4,6 +4,12 @@ local opts = {noremap = true, silent = true}
 
 utils.map('n', '<Space>',   '<NOP>', opts)
 
+-- To Prove that I'm a real vimmer
+utils.map('n', '<Up>', '<Nop>', opts)
+utils.map('n', '<Down>', '<Nop>', opts)
+utils.map('n', '<Left>', '<Nop>', opts)
+utils.map('n', '<Right>', '<Nop>', opts)
+
 -- Leader Key
 vim.g.mapleader = ' '
 
@@ -19,11 +25,6 @@ utils.map('v', '<C-c>',     '<esc>', opts)
 
 
 -- Better buffer moving
-utils.map('n', '<C-left>',  '<C-w>h', {silent = true})
-utils.map('n', '<C-down>',  '<C-w>j', {silent = true})
-utils.map('n', '<C-up>',    '<C-w>k', {silent = true})
-utils.map('n', '<C-right>', '<C-w>l', {silent = true})
-
 utils.map('n', '<C-h>',     '<C-w>h', {silent = true})
 utils.map('n', '<C-j>',     '<C-w>j', {silent = true})
 utils.map('n', '<C-k>',     '<C-w>k', {silent = true})
@@ -31,11 +32,6 @@ utils.map('n', '<C-l>',     '<C-w>l', {silent = true})
 
 
 -- Buffer resizing
-utils.map('n', '<M-left>',  '<cmd>vertical resize -2<CR>', {silent = true})
-utils.map('n', '<M-right>', '<cmd>vertical resize +2<CR>', {silent = true})
-utils.map('n', '<M-down>',  '<cmd>resize +2<CR>', {silent = true})
-utils.map('n', '<M-up>',    '<cmd>resize -2<CR>', {silent = true})
-
 utils.map('n', '<M-h>',     '<cmd>vertical resize -2<CR>', {silent = true})
 utils.map('n', '<M-l>',     '<cmd>vertical resize +2<CR>', {silent = true})
 utils.map('n', '<M-j>',     '<cmd>resize +2<CR>', {silent = true})
@@ -55,12 +51,18 @@ utils.map('n', '<S-TAB>',   ':bprev<CR>', opts)
 utils.map('n', '<Leader><Leader>',   '<C-^>', opts)
 
 
+utils.map('i', '<space>', '<C-g>u<space>', opts)
+
 -- Deleting and Pasting
 utils.map('n', 'ss',        '"_dd', opts)
 utils.map('n', 's',         '"_d', opts)
 utils.map('n', 'S',         '"_D', opts)
 utils.map('n', '<Leader>p', '"0p', opts)
-utils.map('n', '<Leader>P', '"0p', opts)
+utils.map('n', '<Leader>P', '"0P', opts)
+
+
+-- replace Q Ex mode to last macro
+utils.map('n', 'Q', '@@', opts)
 
 
 -- Moving text up and down in visual selection
@@ -73,8 +75,6 @@ utils.map('n', '<S-up>',    ":m-2<cr>==", opts)
 utils.map('n', '<S-down>',  ":m+1<cr>==", opts)
 utils.map('n', '<Leader>k', ':m-2<cr>==', opts)
 utils.map('n', '<Leader>j', ':m+<cr>==', opts)
-
-utils.map('v', 'p', '"_dP', opts)
 
 -- Start and end of line
 utils.map('n', '<S-left>',  "^", opts)
