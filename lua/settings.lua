@@ -2,6 +2,9 @@ local cmd = vim.cmd
 local o = vim.o
 local indent = 2
 
+vim.g.do_filetype_lua = 1
+vim.g.did_load_filetypes = 0
+
 o.swapfile = false
 o.backup = false
 o.writebackup = false
@@ -60,6 +63,7 @@ o.number = true
 o.relativenumber = true
 o.numberwidth = 2
 o.signcolumn = "yes"
+o.breakindent = true -- Better word Wrapping
 
 -- if (vim.o.shell == 'cmd.exe') then
 --   vim.cmd([[

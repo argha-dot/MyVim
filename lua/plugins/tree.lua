@@ -1,33 +1,8 @@
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
-vim.g.nvim_tree_indent_markers = 1
-vim.g.nvim_tree_add_trailing = 1
-vim.g.nvim_tree_icons = {
-  default = "",
-  symlink = "",
-  git = {
-    unstaged = "✗",
-    staged = "S",
-    unmerged = "",
-    renamed = "➜",
-    deleted = "",
-    untracked = "U",
-    ignored = "◌",
-  },
-  folder = {
-    default = "",
-    open = "",
-    empty = "",
-    empty_open = "",
-    symlink = "",
-  },
-}
-
-
 require'nvim-tree'.setup {
   auto_reload_on_write = false,
   disable_netrw        = true,
-  hide_root_folder     = false,
   hijack_cursor        = false,
   hijack_netrw         = true,
   hijack_unnamed_buffer_when_opening = false,
@@ -40,6 +15,7 @@ require'nvim-tree'.setup {
     width = 30,
     height = 30,
     side = 'left',
+    hide_root_folder = false,
     preserve_window_proportions = true,
     number = false,
     relativenumber = false,
@@ -105,6 +81,44 @@ require'nvim-tree'.setup {
         },
       },
     },
+  },
+  renderer = {
+    indent_markers = {
+      enable = true
+    },
+    add_trailing = false,
+    icons = {
+      webdev_colors = true,
+      git_placement = "before",
+      padding = " ",
+      symlink_arrow = " ➛ ",
+      show = {
+        file = true,
+        folder = true,
+        folder_arrow = true,
+        git = true,
+      },
+      glyphs = {
+        default = "",
+        symlink = "",
+        git = {
+          unstaged = "✗",
+          staged = "S",
+          unmerged = "",
+          renamed = "➜",
+          deleted = "",
+          untracked = "U",
+          ignored = "◌",
+        },
+        folder = {
+          default = "",
+          open = "",
+          empty = "",
+          empty_open = "",
+          symlink = "",
+        },
+      }
+    }
   },
   trash = {
     cmd = "trash",

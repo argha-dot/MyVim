@@ -71,16 +71,11 @@ utils.map('v', '<S-down>',  ":m+1<CR>gv=gv", opts)
 utils.map('v', '<S-k>',     ":m-2<CR>gv=gv", opts)
 utils.map('v', '<S-j>',     ":m+1<CR>gv=gv", opts)
 
-utils.map('n', '<S-up>',    ":m-2<cr>==", opts)
-utils.map('n', '<S-down>',  ":m+1<cr>==", opts)
-utils.map('n', '<Leader>k', ':m-2<cr>==', opts)
-utils.map('n', '<Leader>j', ':m+<cr>==', opts)
-
 -- Start and end of line
-utils.map('n', '<S-left>',  "^", opts)
-utils.map('n', '<S-Right>', "$", opts)
 utils.map('n', '<S-h>',     "^", opts)
 utils.map('n', '<S-l>',     "$", opts)
+-- utils.map('n', '<S-left>',  "^", opts)
+-- utils.map('n', '<S-Right>', "$", opts)
 
 vim.cmd [[
   command! Vimrc :vs $MYVIMRC

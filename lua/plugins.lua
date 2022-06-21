@@ -33,7 +33,7 @@ return packer.startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'lewis6991/impatient.nvim'
   use 'antoinemadec/FixCursorHold.nvim'
-  use 'nathom/filetype.nvim'
+  -- use 'nathom/filetype.nvim'
 
   -- Telescope
   use { 'nvim-lua/plenary.nvim' }
@@ -189,7 +189,6 @@ return packer.startup(function(use)
   use 'rafamadriz/friendly-snippets' -- a bunch of snippets to use
   use {
     'mattn/emmet-vim',
-    event = "InsertEnter",
     config = function () require("plugins.emmet") end
   }
 
