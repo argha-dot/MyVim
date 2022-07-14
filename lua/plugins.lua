@@ -195,6 +195,7 @@ return packer.startup(function(use)
   -- Terminal
   use {
     'akinsho/toggleterm.nvim',
+    tag = 'v2.*',
     keys = { [[ <C-\> ]] },
     cmd = { "ToggleTerm", "ToggleTermToggleAll" },
     config = function () require("plugins.toggleterm") end
