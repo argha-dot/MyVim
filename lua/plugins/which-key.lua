@@ -100,7 +100,10 @@ local mappings = {
   -- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   -- ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   -- ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-
+  ["y"] = {
+    "<cmd>Telescope neoclip<cr>",
+    "Previous Yanks",
+  },
   p = {
     name = "Packer",
     c = { "<cmd>PackerCompile<cr>", "Compile" },
@@ -109,7 +112,6 @@ local mappings = {
     S = { "<cmd>PackerStatus<cr>", "Status" },
     u = { "<cmd>PackerUpdate<cr>", "Update" },
   },
-
   g = {
     name = "Git",
     s = { "<cmd>Telescope git_status<cr>", "Open changed file" },
@@ -117,23 +119,7 @@ local mappings = {
     c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
     N = { "<cmd>Neogit<cr>", "Neogit" },
     n = { "<cmd>Git<cr>", "Split Neogit" }
-    -- j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-    -- k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-    -- l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
-    -- p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-    -- r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-    -- R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-    -- s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-    -- u = {
-    --   "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-    --   "Undo Stage Hunk",
-    -- },
-    -- d = {
-    --   "<cmd>Gitsigns diffthis HEAD<cr>",
-    --   "Diff",
-    -- },
   },
-
   l = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },

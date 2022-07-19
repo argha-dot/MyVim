@@ -28,7 +28,7 @@ packer.init {
   },
 }
 
-return packer.startup(function(use)
+return packer.startup( function (use)
 
   use 'wbthomason/packer.nvim'
   use 'lewis6991/impatient.nvim'
@@ -143,7 +143,7 @@ return packer.startup(function(use)
     config = function() require("plugins.numb") end
   }
   use {
-    "AckslD/nvim-neoclip.lua",
+    'AckslD/nvim-neoclip.lua',
     requires = {
       -- {'tami5/sqlite.lua', module = 'sqlite'},
       {'nvim-telescope/telescope.nvim'},
