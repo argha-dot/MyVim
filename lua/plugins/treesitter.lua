@@ -4,6 +4,10 @@ if not status_ok then
 end
 
 configs.setup {
+  ensure_installed = {"c", "lua", "rust", "html", "json", "json5", "latex", "markdown",
+    "python", "regex", "scss", "tsx", "typescript", "vim", "yaml", "toml", "css", "cpp", 
+    "dockerfile", "cmake", "go", "make"
+  },
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   ignore_install = { "" }, -- List of parsers to ignore installing
   autopairs = {

@@ -47,14 +47,9 @@ return packer.startup( function (use)
     -- run = ':TSUpdate',
     config = function() require("plugins.treesitter") end
   }
-  use {
-    'JoosepAlviste/nvim-ts-context-commentstring',
-    after = 'nvim-treesitter',
-  }
-  use {
-    'windwp/nvim-ts-autotag',
-    after = 'nvim-treesitter',
-  }
+  use { 'JoosepAlviste/nvim-ts-context-commentstring', after = 'nvim-treesitter', }
+  use { 'windwp/nvim-ts-autotag', after = 'nvim-treesitter', }
+  -- use { 'windwp/nvim-ts-autotag', after = 'nvim-treesitter', }
 
   -- File Tree
   use {
@@ -170,7 +165,6 @@ return packer.startup( function (use)
       "LspInstallLog",
       "LspPrintInstalled",
     },
-    config = function () require("lsp.lsp-installer") end
   } -- simple to use language server installer
   -- use 'glepnir/lspsaga.nvim'
   -- use 'tamago324/nlsp-settings.nvim' -- language server settings defined in json for
