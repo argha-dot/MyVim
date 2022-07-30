@@ -9,6 +9,7 @@ configs.setup {
     "dockerfile", "cmake", "go", "make"
   },
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+  auto_install = true,
   ignore_install = { "" }, -- List of parsers to ignore installing
   autopairs = {
     enable = true,

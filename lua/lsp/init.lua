@@ -8,7 +8,9 @@ local stat, lsp_util = pcall(require, "lspconfig/util")
 if not stat then return end
 
 
-local servers = { "tsserver", "pyright", "html", "cssls", "cssmodules_ls", "emmet_ls", "rust_analyzer", "tailwindcss" }
+local servers = { "tsserver", "pyright", "html", "cssls", "cssmodules_ls",
+  "emmet_ls", "rust_analyzer", "tailwindcss"
+}
 
 require("nvim-lsp-installer").setup({
 	automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
