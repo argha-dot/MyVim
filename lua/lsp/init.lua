@@ -24,7 +24,7 @@ require("nvim-lsp-installer").setup({
 })
 
 local function on_attach(client, bufnr)
-  client.resolved_capabilities.document_formatting = false
+  -- client.resolved_capabilities.document_formatting = false
 
   local opts = { noremap = true, silent = true }
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)

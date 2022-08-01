@@ -38,6 +38,7 @@ return packer.startup( function (use)
   -- Telescope
   use { 'nvim-lua/plenary.nvim' }
   use { 'nvim-telescope/telescope.nvim' }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- TreeSitter
   use {
@@ -98,11 +99,6 @@ return packer.startup( function (use)
     'nvim-lualine/lualine.nvim',
     config = function() require("plugins.lualine") end
   }
-  use {
-    'romgrk/barbar.nvim',
-    config = function() require("plugins.barbar") end
-  }
-  -- use 'feline-nvim/feline.nvim'
 
   -- Editing
   use {
@@ -190,7 +186,6 @@ return packer.startup( function (use)
   use {
     'akinsho/toggleterm.nvim',
     tag = 'v2.*',
-    keys = { [[ <C-\> ]] },
     cmd = { "ToggleTerm", "ToggleTermToggleAll" },
     config = function () require("plugins.toggleterm") end
   }

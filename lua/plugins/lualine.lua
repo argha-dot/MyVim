@@ -67,3 +67,5 @@ lualine.setup {
     }
   },
 }
+
+vim.o.laststatus = 3

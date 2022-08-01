@@ -118,7 +118,7 @@ local mappings = {
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
     N = { "<cmd>Neogit<cr>", "Neogit" },
-    n = { "<cmd>Git<cr>", "Split Neogit" }
+    n = { "<cmd>Gitsigns next_hunk<cr>", "Goto Next Hunk" }
   },
   l = {
     name = "LSP",

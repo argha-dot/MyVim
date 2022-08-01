@@ -97,8 +97,16 @@ telescope.setup {
     --   extension_config_key = value,
     -- }
     -- please take a look at the readme of the extension you want to configure
+    fzf = {
+      fuzzy = true,                    -- false will only do exact matching
+      override_generic_sorter = true,  -- override the generic sorter
+      override_file_sorter = true,     -- override the file sorter
+      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+    }
   },
 }
+
+telescope.load_extension('fzf')
 
 utils.map('n', '<Leader>T', '<cmd>Telescope<cr>', {noremap = true, silent = true})
 utils.map('n', '<C-p>', '<cmd>lua require("telescope.builtin").find_files(require("telescope.themes").get_dropdown{previewer = false})<cr>', {noremap = true, silent = true})
