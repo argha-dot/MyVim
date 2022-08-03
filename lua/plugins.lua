@@ -162,6 +162,10 @@ return packer.startup( function (use)
       "LspPrintInstalled",
     },
   } -- simple to use language server installer
+  use { 
+    'kkharji/lspsaga.nvim',
+    config = function() require("lspsaga") end
+  }
   -- use 'glepnir/lspsaga.nvim'
   -- use 'tamago324/nlsp-settings.nvim' -- language server settings defined in json for
   -- use 'jose-elias-alvarez/null-ls.nvim'
