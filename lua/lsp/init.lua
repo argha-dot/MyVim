@@ -7,7 +7,6 @@ if not stat_ok then return end
 local stat, lsp_util = pcall(require, "lspconfig/util")
 if not stat then return end
 
-
 local servers = { "tsserver", "pyright", "html", "cssls", "cssmodules_ls",
   "emmet_ls", "rust_analyzer", "tailwindcss"
 }
@@ -38,6 +37,7 @@ local function on_attach(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>        Lspsaga diagnostic_jump_next<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>Lspsaga code_action <CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>        Lspsaga preview_definition<CR>", opts)
+
 end
 
 local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())

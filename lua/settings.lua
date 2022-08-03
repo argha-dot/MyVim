@@ -39,7 +39,7 @@ o.mouse = 'a' -- Mouse support
 o.conceallevel = 1
 o.showtabline = 2
 o.laststatus = 2
-o.clipboard = "unnamed,unnamedplus" -- Use system clipboard
+o.clipboard = "unnamedplus" -- Use system clipboard
 o.syntax = "enable"
 o.encoding = "utf-8"
 o.fileencoding = "utf-8"
@@ -75,7 +75,7 @@ o.breakindent = true -- Better word Wrapping
 -- end
 --
 vim.g.clipboard = {
-  name = "win32yank",
+  name = "win32yank-windows",
   copy = {
     ["+"] = "win32yank.exe -i --crlf",
     ["*"] = "win32yank.exe -i --crlf"
