@@ -50,7 +50,12 @@ return packer.startup( function (use)
   }
   use { 'JoosepAlviste/nvim-ts-context-commentstring', after = 'nvim-treesitter', }
   use { 'windwp/nvim-ts-autotag', after = 'nvim-treesitter', }
-  -- use { 'windwp/nvim-ts-autotag', after = 'nvim-treesitter', }
+  use { 'p00f/nvim-ts-rainbow', after = 'nvim-treesitter', }
+  use {
+    "folke/twilight.nvim",
+    after = 'nvim-treesitter',
+    config = function() require("plugins.twilight") end
+  }
 
   -- File Tree
   use {

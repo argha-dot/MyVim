@@ -6,7 +6,7 @@ end
 configs.setup {
   ensure_installed = {"c", "lua", "rust", "html", "json", "json5", "latex", "markdown",
     "python", "regex", "scss", "tsx", "typescript", "vim", "yaml", "toml", "css", "cpp", 
-    "dockerfile", "cmake", "go", "make"
+    "dockerfile", "cmake", "go", "make", "markdown_inline"
   },
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   auto_install = true,
@@ -26,6 +26,11 @@ configs.setup {
   },
   autotag = {
     enable = true,
+  },
+  rainbow = {
+    enable = true,
+    extended_mode = true,
+    max_file_lines = nil,
   }
 }
 
