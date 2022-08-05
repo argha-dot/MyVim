@@ -171,9 +171,6 @@ return packer.startup( function (use)
     'kkharji/lspsaga.nvim',
     config = function() require("lspsaga") end
   }
-  -- use 'glepnir/lspsaga.nvim'
-  -- use 'tamago324/nlsp-settings.nvim' -- language server settings defined in json for
-  -- use 'jose-elias-alvarez/null-ls.nvim'
 
   -- CMP
   use 'hrsh7th/nvim-cmp' -- The completion plugin
