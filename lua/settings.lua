@@ -1,6 +1,7 @@
 local cmd = vim.cmd
 local o = vim.o
 local indent = 2
+local os = vim.bo.fileformat:upper()
 
 vim.g.do_filetype_lua = 1
 -- vim.g.did_load_filetypes = 0
@@ -64,25 +65,3 @@ o.relativenumber = true
 o.numberwidth = 2
 o.signcolumn = "yes"
 o.breakindent = true -- Better word Wrapping
-
--- if (vim.o.shell == 'cmd.exe') then
---   vim.cmd([[
---     set shell=powershell
---     set shellcmdflag=-command
---     set shellquote=\"
---     set shellxquote=
---   ]])
--- end
---
-vim.g.clipboard = {
-  name = "win32yank-windows",
-  copy = {
-    ["+"] = "win32yank.exe -i --crlf",
-    ["*"] = "win32yank.exe -i --crlf"
-  },
-  paste = {
-    ["+"] = "win32yank.exe -o --crlf",
-    ["*"] = "win32yank.exe -o --crlf"
-  },
-  cache_enable = 0,
-}
