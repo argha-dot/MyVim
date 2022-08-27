@@ -12,5 +12,4 @@ require 'winbar'
 
 require 'plugins.cmp'
 require 'plugins.telescope'
-
-require 'lsp'
+require 'plugins.mason'

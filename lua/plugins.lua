@@ -141,32 +141,18 @@ return packer.startup( function (use)
   use {
     'AckslD/nvim-neoclip.lua',
     requires = {
-      -- {'tami5/sqlite.lua', module = 'sqlite'},
       {'nvim-telescope/telescope.nvim'},
     },
     config = function() require('plugins.neoclip') end,
-    -- after = 'telescope.nvim',
-    -- cmd = { "Telescope" }
   }
-  -- use 'tpope/vim-sleuth'
 
   -- LSP
+  use { "williamboman/mason.nvim" }
+  use { "williamboman/mason-lspconfig.nvim" }
   use {
     'neovim/nvim-lspconfig',
-    event = "BufReadPre",
     config =  function () require("lsp") end
   } -- enable LSP
-  use {
-    'williamboman/nvim-lsp-installer',
-    cmd = {
-      "LspInstall",
-      "LspInstallInfo",
-      "LspUninstall",
-      "LspUninstallAll",
-      "LspInstallLog",
-      "LspPrintInstalled",
-    },
-  } -- simple to use language server installer
   use { 
     'kkharji/lspsaga.nvim',
     config = function() require("lspsaga") end

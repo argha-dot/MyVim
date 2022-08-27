@@ -4,7 +4,7 @@ This repo contains my Nvim config files which I use in Windows 10 powershell and
 
 ## Plugins Used:
  - Plugin management via [packer.nvim](https://github.com/wbthomason/packer.nvim)
- - Auto-completion via [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) and [nvim-compe](https://github.com/hrsh7th/nvim-compe)
+ - Auto-completion via [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) and [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
  - File explorer via [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
  - Syntax highlighting and much more by [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter), [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)
  - Fuzzy search and much more via [Telescope](https://github.com/nvim-telescope/telescope.nvim)

@@ -11,17 +11,6 @@ local servers = { "tsserver", "pyright", "html", "cssls", "cssmodules_ls",
   "emmet_ls", "rust_analyzer", "tailwindcss"
 }
 
-require("nvim-lsp-installer").setup({
-	automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
-	ui = {
-		icons = {
-			server_installed = "✓",
-			server_pending = "➜",
-			server_uninstalled = "✗",
-		},
-	},
-})
-
 local function on_attach(client, bufnr)
   -- client.resolved_capabilities.document_formatting = false
 
