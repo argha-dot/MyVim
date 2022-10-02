@@ -83,6 +83,7 @@ return packer.startup( function (use)
     config = function() require("plugins.alpha") end
   }
   use 'christianchiarulli/nvcode-color-schemes.vim'
+  use 'rebelot/kanagawa.nvim'
   use {
     'lukas-reineke/indent-blankline.nvim',
     event = { "BufRead", "BufNewFile" },
@@ -92,11 +93,6 @@ return packer.startup( function (use)
     'norcalli/nvim-colorizer.lua',
     ft = { 'html','css','sass','vim','typescript','typescriptreact'},
     config = function() require("plugins.colorizer") end
-  }
-  use {
-    'folke/zen-mode.nvim',
-    cmd = { "ZenMode" },
-    config = function() require("plugins.zen-mode") end
   }
 
   -- Lines
@@ -137,13 +133,6 @@ return packer.startup( function (use)
   use {
     'nacro90/numb.nvim',
     config = function() require("plugins.numb") end
-  }
-  use {
-    'AckslD/nvim-neoclip.lua',
-    requires = {
-      {'nvim-telescope/telescope.nvim'},
-    },
-    config = function() require('plugins.neoclip') end,
   }
 
   -- LSP
@@ -198,6 +187,7 @@ return packer.startup( function (use)
   use {
     'lervag/vimtex',
     ft = { 'tex' },
+    config = function() require("plugins.vimtex") end
   }
 
   -- Automatically set up your configuration after cloning packer.nvim

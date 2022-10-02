@@ -1,7 +1,5 @@
-
-local servers = {
-  "tsserver", "pyright", "html", "cssls", "cssmodules_ls",
-  "emmet_ls", "rust_analyzer", "tailwindcss"
+local servers = { "tsserver", "pyright", "html", "cssls", "cssmodules_ls",
+  "emmet_ls", "rust_analyzer", "tailwindcss", "texlab"
 }
 
 require("mason").setup()

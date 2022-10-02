@@ -74,9 +74,3 @@ utils.map('v', '<S-j>',     ":m+1<CR>gv=gv", opts)
 -- Start and end of line
 utils.map('n', '<S-h>',     "^", opts)
 utils.map('n', '<S-l>',     "$", opts)
--- utils.map('n', '<S-left>',  "^", opts)
--- utils.map('n', '<S-Right>', "$", opts)
-
-vim.cmd [[
-  command! Vimrc :vs $MYVIMRC
-]]

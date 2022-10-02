@@ -6,8 +6,6 @@ if not status_ok then
   return
 end
 
-telescope.load_extension('neoclip')
-
 local actions = require "telescope.actions"
 
 telescope.setup {

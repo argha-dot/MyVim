@@ -8,7 +8,7 @@ local stat, lsp_util = pcall(require, "lspconfig/util")
 if not stat then return end
 
 local servers = { "tsserver", "pyright", "html", "cssls", "cssmodules_ls",
-  "emmet_ls", "rust_analyzer", "tailwindcss"
+  "emmet_ls", "rust_analyzer", "tailwindcss", "texlab"
 }
 
 local function on_attach(client, bufnr)

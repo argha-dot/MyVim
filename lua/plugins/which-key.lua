@@ -100,10 +100,6 @@ local mappings = {
   -- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   -- ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   -- ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-  ["y"] = {
-    "<cmd>Telescope neoclip<cr>",
-    "Previous Yanks",
-  },
   p = {
     name = "Packer",
     c = { "<cmd>PackerCompile<cr>", "Compile" },
