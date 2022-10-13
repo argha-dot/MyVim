@@ -36,6 +36,15 @@ for _, lsp in ipairs(servers) do
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {
+      python = {
+        venvPath = ".",
+        venv = "venv",
+        analysis = {
+          autoSearchPaths = true,
+          diagnosticMode = "workspace",
+          useLibraryCodeForTypes = true
+        },
+      },
     }
   })
 end

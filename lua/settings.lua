@@ -2,9 +2,6 @@ local cmd = vim.cmd
 local o = vim.o
 local indent = 2
 
-vim.g.do_filetype_lua = 1
--- vim.g.did_load_filetypes = 0
-
 o.swapfile = false
 o.backup = false
 o.writebackup = false
@@ -19,7 +16,7 @@ o.softtabstop = indent
 o.splitright = true
 o.splitbelow = true
 
-o.cmdheight = 1 -- Neovim commandline space
+o.cmdheight = 0 -- Neovim commandline space
 o.pumheight = 10 -- Pop-up menu height
 -- o.colorcolumn = '80'
 
@@ -27,8 +24,8 @@ o.wildmenu = true
 
 -- Indent and tab stuff
 o.smartcase = true
-o.smartindent = true
 o.autoindent = true
+o.smartindent = false
 o.smarttab = true
 o.expandtab = true
 

@@ -189,6 +189,11 @@ return packer.startup( function (use)
     ft = { 'tex' },
     config = function() require("plugins.vimtex") end
   }
+  use {
+    'jbyuki/nabla.nvim',
+    ft = { 'tex', 'md' },
+    config = function() require("plugins.nabla") end
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
