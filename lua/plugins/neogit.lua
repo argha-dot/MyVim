@@ -14,7 +14,7 @@ neogit.setup {
     kind = "split",
   },
   -- Change the default way of opening neogit
-  kind = "tab", 
+  kind = "tab",
   -- customize displayed signs
   signs = {
     -- { CLOSED, OPENED }
@@ -23,7 +23,7 @@ neogit.setup {
     hunk = { "", "" },
   },
   integrations = {
-    diffview = false  
+    diffview = false
   },
   -- Setting any section to `false` will make the section not render at all
   sections = {
@@ -62,4 +62,3 @@ neogit.setup {
 vim.cmd [[
   command! Git :Neogit kind=split
 ]]
-

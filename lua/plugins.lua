@@ -174,6 +174,7 @@ return packer.startup( function (use)
   }
   use {
     'TimUntersberger/neogit',
+    -- 'ten3roberts/neogit',
     cmd = { "Git", "Neogit" },
     config = function() require("plugins.neogit") end
   }

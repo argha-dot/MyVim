@@ -18,4 +18,3 @@ This repo contains my Nvim config files which I use in Windows 10 powershell and
  - [quick-scope](https://github.com/unblevable/quick-scope) for jumping around horizontally using `fF tT ,;`
  - [nvim-autopairs](https://github.com/windwp/nvim-autopairs) for auto-closing of brackets and such
  - [vim-repeat](https://github.com/tpope/vim-repeat) and [vim-surround](https://github.com/tpope/vim-surround) for ..., check the links.
-

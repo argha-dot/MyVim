@@ -6,7 +6,11 @@ local exclude_ft = {
   "startify",
   "dashboard",
   "packer",
-  "neogitstatus",
+  "Neogit*",
+  "NeogitStatus",
+  "NeogitCommitPopup",
+  "NeogitPullPopup",
+  "NeogitPushPopup",
   "neo-tree",
   "Trouble",
   "alpha",
@@ -14,16 +18,22 @@ local exclude_ft = {
   "Outline",
   "spectre_panel",
   "toggleterm",
-  "NvimTree"
+  "NvimTree",
 }
 
 local excludes = function()
+  local contains = false
   if vim.tbl_contains(exclude_ft, vim.bo.filetype) then
     vim.opt_local.winbar = nil
     return true
   end
+  for _, ft in ipairs(exclude_ft) do
+    if not require"utils".is_empty(string.find(vim.bo.filetype, ft)) then
+      return true
+    end
+  end
 
-  return false
+  return contains
 end
 
 local winbar_init = function()
