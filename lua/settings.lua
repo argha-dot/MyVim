@@ -61,3 +61,6 @@ o.relativenumber = true
 o.numberwidth = 2
 o.signcolumn = "yes"
 o.breakindent = true -- Better word Wrapping
+
+-- fancy stuff
+vim.opt.listchars:append({eol = "↵"})

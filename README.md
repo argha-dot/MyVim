@@ -9,7 +9,7 @@ This repo contains my Nvim config files which I use in Windows 10 powershell and
  - Syntax highlighting and much more by [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter), [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)
  - Fuzzy search and much more via [Telescope](https://github.com/nvim-telescope/telescope.nvim)
  - Git integration via [gitsigns](https://github.com/lewis6991/gitsigns.nvim) and [neogit](https://github.com/TimUntersberger/neogit)
- - Status-line and Tab-line via [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim/) and [barbar.nvim](https://github.com/romgrk/barbar.nvim) respectively
+ - Status-line via [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim/)
  - Code commenting via [Comment.nvim](https://github.com/numToStr/Comment.nvim)
  - Color themes via [nvcode-color-schemes](https://github.com/christianchiarulli/nvcode-color-schemes.vim)
  - Icons via [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)

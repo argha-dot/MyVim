@@ -32,13 +32,12 @@ return packer.startup( function (use)
 
   use 'wbthomason/packer.nvim'
   use 'lewis6991/impatient.nvim'
-  use 'antoinemadec/FixCursorHold.nvim'
   -- use 'nathom/filetype.nvim'
 
   -- Telescope
   use { 'nvim-lua/plenary.nvim' }
   use { 'nvim-telescope/telescope.nvim' }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- TreeSitter
   use {
@@ -51,11 +50,6 @@ return packer.startup( function (use)
   use { 'JoosepAlviste/nvim-ts-context-commentstring', after = 'nvim-treesitter', }
   use { 'windwp/nvim-ts-autotag', after = 'nvim-treesitter', }
   use { 'p00f/nvim-ts-rainbow', after = 'nvim-treesitter', }
-  use {
-    "folke/twilight.nvim",
-    after = 'nvim-treesitter',
-    config = function() require("plugins.twilight") end
-  }
 
   -- File Tree
   use {
@@ -82,8 +76,10 @@ return packer.startup( function (use)
     'goolord/alpha-nvim',
     config = function() require("plugins.alpha") end
   }
-  use 'christianchiarulli/nvcode-color-schemes.vim'
-  use 'rebelot/kanagawa.nvim'
+  -- use 'christianchiarulli/nvcode-color-schemes.vim'
+  -- use 'rebelot/kanagawa.nvim'
+  use 'tiagovla/tokyodark.nvim'
+
   use {
     'lukas-reineke/indent-blankline.nvim',
     event = { "BufRead", "BufNewFile" },
@@ -129,10 +125,6 @@ return packer.startup( function (use)
   use {
     'unblevable/quick-scope',
     config = function() require("plugins.quick-scope") end
-  }
-  use {
-    'nacro90/numb.nvim',
-    config = function() require("plugins.numb") end
   }
 
   -- LSP
