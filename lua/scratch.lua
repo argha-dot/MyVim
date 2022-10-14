@@ -1,5 +1,3 @@
-local utils = require("utils")
-
 function Scratch()
   vim.cmd [[
     vsplit

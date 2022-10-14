@@ -1,3 +1,4 @@
+---@diagnostic disable: need-check-nil
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
   return
@@ -39,7 +40,6 @@ local kind_icons = {
   TypeParameter = "",
 }
 
-
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -56,10 +56,10 @@ cmp.setup {
     }),
 
     ['<CR>'] = cmp.mapping.confirm {
-      -- behavior = cmp.ConfirmBehavior.Replace,
+      behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-    ['<Tab>'] = function(fallback)
+    ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       elseif luasnip.expand_or_jumpable() then
@@ -67,8 +67,8 @@ cmp.setup {
       else
         fallback()
       end
-    end,
-    ['<S-Tab>'] = function(fallback)
+    end, { 'i', 's' }),
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       elseif luasnip.jumpable(-1) then
@@ -76,7 +76,7 @@ cmp.setup {
       else
         fallback()
       end
-    end,
+    end, { 'i', 's' }),
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },
@@ -98,6 +98,7 @@ cmp.setup {
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
+    { name = "cmp-tw2css" }
   },
   -- confirm_opts = {
   --   behavior = cmp.ConfirmBehavior.Replace,

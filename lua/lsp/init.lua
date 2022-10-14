@@ -4,14 +4,14 @@ if not status_ok then return end
 local stat_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not stat_ok then return end
 
-local stat, lsp_util = pcall(require, "lspconfig/util")
-if not stat then return end
+-- local stat, lsp_util = pcall(require, "lspconfig/util")
+-- if not stat then return end
 
 local servers = { "tsserver", "pyright", "html", "cssls", "cssmodules_ls",
-  "emmet_ls", "rust_analyzer", "tailwindcss", "texlab"
+  "emmet_ls", "rust_analyzer", "tailwindcss", "texlab", "jsonls", "sumneko_lua"
 }
 
-local function on_attach(client, bufnr)
+local function on_attach(_, bufnr)
   -- client.resolved_capabilities.document_formatting = false
 
   local opts = { noremap = true, silent = true }
@@ -31,7 +31,7 @@ end
 
 local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-for _, lsp in ipairs(servers) do 
+for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup({
     on_attach = on_attach,
     capabilities = capabilities,
@@ -45,6 +45,20 @@ for _, lsp in ipairs(servers) do
           useLibraryCodeForTypes = true
         },
       },
+      Lua = {
+        runtime = {
+          version = "LuaJIT"
+        },
+        diagnostics = {
+          globals = {'vim'}
+        },
+        workspace = {
+          library = vim.api.nvim_get_runtime_file("", true),
+        },
+        telemetry = {
+          enable = false
+        }
+      }
     }
   })
 end

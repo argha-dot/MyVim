@@ -1,4 +1,3 @@
-local cmd = vim.cmd
 local o = vim.o
 local indent = 2
 

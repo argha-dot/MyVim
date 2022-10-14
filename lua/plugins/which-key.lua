@@ -112,7 +112,7 @@ local mappings = {
     N = { "<cmd>Neogit<cr>", "Neogit" },
     n = { "<cmd>lua NextHunk()<cr>", "Goto Next Hunk" },
     p = { "<cmd>Gitsigns preview_hunk<cr>", "Preview Diff" },
-    d = { "<cmd>Gitsigns diffthis", "File Diff" },
+    d = { "<cmd>Gitsigns diffthis<cr>", "File Diff" },
   },
   l = {
     name = "LSP",
