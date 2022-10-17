@@ -7,6 +7,7 @@ local exclude_ft = {
   "dashboard",
   "packer",
   "Neogit*",
+  "prompt",
   "NeogitStatus",
   "NeogitCommitPopup",
   "NeogitPullPopup",
@@ -18,6 +19,7 @@ local exclude_ft = {
   "Outline",
   "spectre_panel",
   "toggleterm",
+  "terminal",
   "NvimTree",
 }
 
@@ -27,11 +29,11 @@ local excludes = function()
     vim.opt_local.winbar = nil
     return true
   end
-  for _, ft in ipairs(exclude_ft) do
-    if not require"utils".is_empty(string.find(vim.bo.filetype, ft)) then
-      return true
-    end
-  end
+  -- for _, ft in ipairs(exclude_ft) do
+  --   if not require"utils".is_empty(string.find(vim.bo.filetype, ft)) then
+  --     return true
+  --   end
+  -- end
 
   return contains
 end
@@ -39,7 +41,7 @@ end
 local winbar_init = function()
   if excludes() then return end
   local fileinfo = require"utils".get_fileinfo()
-  local value = fileinfo["icon"] .. " " .. "%#LineNr#" .. fileinfo["name"] .. "%m" .. "%*"
+  local value = " " .. fileinfo["icon"] .. " " .. "%#LineNr#" .. fileinfo["name"] .. "%m" .. "%*"
   -- print( vim.inspect( require"utils".get_fileinfo() ) )
   --
   local status, _ = pcall(vim.api.nvim_set_option_value, "winbar", value, { scope = "local" })

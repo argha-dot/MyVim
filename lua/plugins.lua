@@ -118,13 +118,17 @@ return packer.startup( function (use)
   }
   use {
     'folke/which-key.nvim',
-    keys = { "<Leader>" },
+    keys = { "<Leader>", "'", '"', 'z' },
     -- event = { "BufRead", "BufNewFile" },
     config = function () require("plugins.which-key") end
   }
   use {
     'unblevable/quick-scope',
     config = function() require("plugins.quick-scope") end
+  }
+  use {
+    'andymass/vim-matchup',
+    config = function() require("plugins.matchup") end
   }
 
   -- CMP

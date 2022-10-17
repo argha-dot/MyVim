@@ -1,50 +1,86 @@
-local cmd = vim.cmd
-
-
-cmd [[
+vim.cmd [[
   set path+=**
   set whichwrap+=<,>,[,],h,l"
 ]]
 
 -- Markdown and LaTeX Settings
-cmd [[
-  autocmd BufNewFile,BufRead *.md set filetype=markdown
-  autocmd BufNewFile,BufRead *.tex set filetype=tex
+local wrap_line_and_spell_grp = vim.api.nvim_create_augroup("WrapLineAndSpell", { clear = true })
+vim.api.nvim_create_autocmd(
+  "FileType",
+  {
+    pattern = "markdown",
+    command = "setlocal linebreak wrap spell",
+    group = wrap_line_and_spell_grp
+  }
+)
+vim.api.nvim_create_autocmd(
+  "FileType",
+  {
+    pattern = "tex",
+    command = "setlocal linebreak wrap spell",
+    group = wrap_line_and_spell_grp
+  }
+)
 
-  augroup WrapLineInMDFile
-    autocmd!
-    autocmd FileType markdown setlocal linebreak wrap 
-    autocmd FileType markdown setlocal spell
-  augroup END
+local no_rel_insert_grp = vim.api.nvim_create_augroup("NoRelInsert", { clear = true })
+vim.api.nvim_create_autocmd(
+  "InsertEnter",
+  {
+    command = "norm zz",
+    group = no_rel_insert_grp,
+    pattern = "*"
+  }
+)
+vim.api.nvim_create_autocmd(
+  "InsertEnter",
+  {
+    command = "set norelativenumber",
+    group = no_rel_insert_grp,
+    pattern = "*"
+  }
+)
+vim.api.nvim_create_autocmd(
+  "InsertLeave",
+  {
+    command = "set relativenumber",
+    group = no_rel_insert_grp,
+    pattern = "*"
+  }
+)
 
-  augroup LaTeXStuff
-    autocmd!
-    autocmd FileType tex setlocal linebreak wrap 
-    autocmd FileType tex setlocal spell
-  augroup END
-]]
+local highlight_yank_grp = vim.api.nvim_create_augroup('YankHighlight', { clear = true } )
+vim.api.nvim_create_autocmd(
+  'TextYankPost',
+  {
+    callback = function ()
+      vim.highlight.on_yank()
+    end,
+    group = highlight_yank_grp,
+    pattern = "*"
+  }
+)
 
--- Fold shit
-cmd [[
-  augroup OpenAllFoldsOnFileOpen
-    autocmd!
-    au BufNewFile,BufRead * normal zR
-  augroup END
-]]
+local cursor_line_grp = vim.api.nvim_create_augroup('CursorLine', { clear = true })
+vim.api.nvim_create_autocmd(
+  { 'InsertLeave', "WinEnter" },
+  {
+    command = "set cursorline",
+    group = cursor_line_grp,
+    pattern = "*"
+  }
+)
+vim.api.nvim_create_autocmd(
+  { 'InsertEnter', "WinLeave" },
+  {
+    command = "set nocursorline",
+    group = cursor_line_grp,
+    pattern = "*"
+  }
+)
 
--- Insert Stuff
-cmd [[
-  augroup no_relative_for_insert
-    autocmd!
-    au InsertEnter * norm zz
-    au InsertEnter * set norelativenumber
-    au InsertLeave * set relativenumber
-  augroup END
-]]
-
-cmd [[
-  augroup highlight_yank
-    autocmd!
-    au TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=150}
-  augroup END
-]]
+vim.api.nvim_create_autocmd(
+  "BufEnter",
+  {
+    command = [[ set formatoptions-=cro ]]
+  }
+)

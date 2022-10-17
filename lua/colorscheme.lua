@@ -1,5 +1,4 @@
 vim.o.termguicolors = true
-vim.o.background = "dark"
 
 vim.g.tokyodark_transparent_background = true
 vim.g.tokyodark_enable_italic_comment = true
@@ -22,7 +21,6 @@ vim.g.tokyodark_enable_italic = false
 -- end
 
 vim.cmd[[
-  syntax on
   colorscheme tokyodark
 
   hi clear SignColumn

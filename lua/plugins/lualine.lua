@@ -21,7 +21,7 @@ end
 
 lualine.setup {
   options = {
-    theme = 'codedark',
+    theme = 'ayu_dark',
     component_separators = {
       left = '│',
       right = '│'

@@ -45,7 +45,6 @@ o.hlsearch = true -- Highlight in real time
 o.showmode = false
 -- o.foldlevelstart = 99
 
-o.cursorline = true
 o.wrap = false
 o.undofile = true -- Persist undos
 o.inccommand = "nosplit"
