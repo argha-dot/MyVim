@@ -1,3 +1,4 @@
+local utils = require("utils")
 -- vim.o.winbar = [[ %t %m ]]
 vim.o.showtabline = 0
 
@@ -6,12 +7,10 @@ local exclude_ft = {
   "startify",
   "dashboard",
   "packer",
-  "Neogit*",
+  "Neogit",
+  "Lspsaga",
+  "Definition",
   "prompt",
-  "NeogitStatus",
-  "NeogitCommitPopup",
-  "NeogitPullPopup",
-  "NeogitPushPopup",
   "neo-tree",
   "Trouble",
   "alpha",
@@ -21,6 +20,7 @@ local exclude_ft = {
   "toggleterm",
   "terminal",
   "NvimTree",
+  "qf",
 }
 
 local excludes = function()
@@ -29,11 +29,13 @@ local excludes = function()
     vim.opt_local.winbar = nil
     return true
   end
-  -- for _, ft in ipairs(exclude_ft) do
-  --   if not require"utils".is_empty(string.find(vim.bo.filetype, ft)) then
-  --     return true
-  --   end
-  -- end
+
+  for _, ft in ipairs(exclude_ft) do
+    if not require"utils".is_empty(string.find(vim.bo.filetype, ft)) then
+      vim.opt_local.winbar = nil
+      return true
+    end
+  end
 
   return contains
 end
@@ -41,13 +43,14 @@ end
 local winbar_init = function()
   if excludes() then return end
   local fileinfo = require"utils".get_fileinfo()
-  local value = " " .. fileinfo["icon"] .. " " .. "%#LineNr#" .. fileinfo["name"] .. "%m" .. "%*"
+  local value = " " .. fileinfo["icon"] .. " " .. "%#LineNr#" .. fileinfo["name"] .. "%*"
   -- print( vim.inspect( require"utils".get_fileinfo() ) )
-  --
+  if not utils.is_empty(value) and vim.api.nvim_buf_get_option(0, "mod") then
+    value = value .. " " .. "%#LineNr#" .. "" .. "%*"
+  end
   local status, _ = pcall(vim.api.nvim_set_option_value, "winbar", value, { scope = "local" })
   if not status then return end
 end
-
 
 
 vim.api.nvim_create_autocmd(
