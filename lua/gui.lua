@@ -7,6 +7,8 @@ if (vim.g.neovide) then
   vim.g.neovide_refresh_rate = 30
   vim.g.neovide_refresh_rate_idle = 5
   vim.g.neovide_remember_window_size = true
+
+  utils.map('n', '<F11>', '<cmd>lua Fullscreen()<CR>', opts)
 end
 
 function Fullscreen()
@@ -17,4 +19,3 @@ function Fullscreen()
   end
 end
 
-utils.map('n', '<F11>', '<cmd>lua Fullscreen()<CR>', opts)

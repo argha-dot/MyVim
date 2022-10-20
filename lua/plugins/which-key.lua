@@ -93,7 +93,7 @@ local mappings = {
     "Buffers",
   },
   ["i"] = {
-    "gg=G''",
+    "=%",
     "Format"
   },
   ["f"] = {
