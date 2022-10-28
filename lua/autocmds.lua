@@ -23,14 +23,14 @@ vim.api.nvim_create_autocmd(
 )
 
 local no_rel_insert_grp = vim.api.nvim_create_augroup("NoRelInsert", { clear = true })
-vim.api.nvim_create_autocmd(
-  "InsertEnter",
-  {
-    command = "norm zz",
-    group = no_rel_insert_grp,
-    pattern = "*"
-  }
-)
+-- vim.api.nvim_create_autocmd(
+--   "InsertEnter",
+--   {
+--     command = "norm zz",
+--     group = no_rel_insert_grp,
+--     pattern = "*"
+--   }
+-- )
 vim.api.nvim_create_autocmd(
   "InsertEnter",
   {

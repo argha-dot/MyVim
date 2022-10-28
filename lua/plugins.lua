@@ -71,9 +71,17 @@ return packer.startup( function (use)
   }
 
   -- Visual Stuff
-  use 'kyazdani42/nvim-web-devicons'
+  use {
+    'kyazdani42/nvim-web-devicons',
+    event = "BufWinEnter"
+  }
   use {
     'goolord/alpha-nvim',
+    cmd = {
+      "Alpha",
+      "AlphaRedrwa"
+    },
+    event = "BufWinEnter",
     config = function() require("plugins.alpha") end
   }
   -- use 'christianchiarulli/nvcode-color-schemes.vim'
@@ -82,7 +90,7 @@ return packer.startup( function (use)
 
   use {
     'lukas-reineke/indent-blankline.nvim',
-    event = { "BufRead", "BufNewFile" },
+    event = { "BufRead", "BufNewFile", "BufWinEnter" },
     config = function() require("plugins.indent-line") end
   }
   use {
@@ -102,11 +110,6 @@ return packer.startup( function (use)
     'numToStr/Comment.nvim',
     event = { "BufRead", "BufNewFile" },
     config = function () require("plugins.comment") end
-  }
-  use {
-    'windwp/nvim-autopairs',
-    event = "InsertEnter",
-    config = function () require("plugins.autopairs") end
   }
   use {
     'tpope/vim-repeat',
@@ -148,7 +151,11 @@ return packer.startup( function (use)
     event = { "InsertEnter" },
     config = function () require("plugins.emmet") end
   }
-
+  use {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = function () require("plugins.autopairs") end
+  }
 
   -- LSP
   use { "williamboman/mason.nvim" }
