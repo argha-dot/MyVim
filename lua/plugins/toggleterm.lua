@@ -1,5 +1,3 @@
-local utils = require("utils")
-
 local status_ok, toggleterm = pcall(require, "toggleterm")
 if not status_ok then
 	return
@@ -9,7 +7,7 @@ local function osinfo()
   local shell
   if vim.o.shell == 'cmd.exe' then
     shell = [[ powershell.exe ]]
-  else 
+  else
     shell = vim.o.shell
   end
 
