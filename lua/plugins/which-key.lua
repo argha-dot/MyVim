@@ -113,6 +113,8 @@ local mappings = {
     n = { "<cmd>lua NextHunk()<cr>", "Goto Next Hunk" },
     p = { "<cmd>Gitsigns preview_hunk<cr>", "Preview Diff" },
     d = { "<cmd>Gitsigns diffthis<cr>", "File Diff" },
+    r = { "<cmd>Gitsigns reset_hunk<cr>", "Reset Hunk" },
+    R = { "<cmd>Gitsigns reset_buffer<cr>", "Reset Buffer" },
   },
   l = {
     name = "LSP",
