@@ -16,6 +16,7 @@ local exclude_ft = {
   "alpha",
   "lir",
   "Outline",
+  "nabla",
   "spectre_panel",
   "toggleterm",
   "terminal",
