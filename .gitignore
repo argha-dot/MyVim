@@ -2,3 +2,4 @@ tutor
 plugin/
 ls/
 log
+.luarc.json
