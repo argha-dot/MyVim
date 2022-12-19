@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 neogit.setup {
-  dusable_signs = false,
+  disable_signs = false,
   disable_hint = false,
   disable_context_highlighting = false,
   disable_commit_confirmation = false,

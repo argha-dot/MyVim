@@ -60,17 +60,25 @@ utils.map('n', 'S',         '"_D', opts)
 utils.map('n', '<Leader>p', '"0p', opts)
 utils.map('n', '<Leader>P', '"0P', opts)
 
+-- Better J
+utils.map("n", "J", "mzJ`z", opts)
+
+
+-- Better n, N
+utils.map('n', 'n', 'nzzzv', opts)
+utils.map('n', 'N', 'Nzzzv', opts)
+
 
 -- replace Q Ex mode to last macro
 utils.map('n', 'Q', '@@', opts)
 
 
 -- Moving text up and down in visual selection
-utils.map('v', '<S-up>',    ":m-2<CR>gv=gv", opts)
-utils.map('v', '<S-down>',  ":m+1<CR>gv=gv", opts)
-utils.map('v', '<S-k>',     ":m-2<CR>gv=gv", opts)
-utils.map('v', '<S-j>',     ":m+1<CR>gv=gv", opts)
+utils.map('v', '<S-k>',     ":m '<-2<CR>gv=gv", opts)
+utils.map('v', '<S-j>',     ":m '>+1<CR>gv=gv", opts)
 
 -- Start and end of line
 utils.map('n', '<S-h>',     "^", opts)
 utils.map('n', '<S-l>',     "$", opts)
+
+utils.map('n', '<leader>r', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], {noremap = true})

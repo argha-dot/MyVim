@@ -16,7 +16,10 @@ configs.setup {
     disable = { "" }, -- list of language that will be disabled
     additional_vim_regex_highlighting = false,
   },
-  indent = { enable = true, disable = { "yaml" } },
+  indent = {
+    enable = true,
+    disable = { "yaml" }
+  },
   context_commentstring = {
     enable = true,
     enable_autocmd = false,
@@ -37,5 +40,6 @@ configs.setup {
   }
 }
 
--- vim.o.foldmethod = 'expr'
--- vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.o.foldmethod = 'expr'
+vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.o.foldenable = false

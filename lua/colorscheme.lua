@@ -20,12 +20,15 @@ vim.g.tokyodark_enable_italic = false
 --   ]]
 -- end
 
-vim.cmd[[
-  colorscheme tokyodark
+vim.cmd.colorscheme("tokyodark")
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
+vim.cmd[[
   hi clear SignColumn
   hi clear CursorLine
   hi CursorLine cterm=underline gui=underline
   " hi Normal ctermbg=NONE guibg=NONE
   highlight VertSplit guibg=#ff000000
 ]]
+
