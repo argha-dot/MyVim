@@ -8,7 +8,7 @@ if not stat_ok then return end
 -- if not stat then return end
 
 local servers = { "tsserver", "pyright", "html", "cssls", "cssmodules_ls",
-  "emmet_ls", "rust_analyzer", "tailwindcss", "texlab", "jsonls", "sumneko_lua"
+  "emmet_ls", "rust_analyzer", "tailwindcss", "texlab", "jsonls", "sumneko_lua", "gopls"
 }
 
 local function on_attach(_, bufnr)

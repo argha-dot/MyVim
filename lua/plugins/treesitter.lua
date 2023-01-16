@@ -6,7 +6,7 @@ end
 configs.setup {
   ensure_installed = {"c", "lua", "rust", "html", "json", "json5", "latex", "markdown",
     "python", "regex", "scss", "tsx", "typescript", "vim", "yaml", "toml", "css", "cpp",
-    "dockerfile", "cmake", "go", "make", "markdown_inline"
+    "dockerfile", "cmake", "go", "make", "markdown_inline", "go", "gomod"
   },
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   auto_install = true,

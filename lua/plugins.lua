@@ -87,7 +87,6 @@ return packer.startup( function (use)
   -- use 'christianchiarulli/nvcode-color-schemes.vim'
   -- use 'rebelot/kanagawa.nvim'
   use 'tiagovla/tokyodark.nvim'
-
   use {
     'lukas-reineke/indent-blankline.nvim',
     event = { "BufRead", "BufNewFile", "BufWinEnter" },
