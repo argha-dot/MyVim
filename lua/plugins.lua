@@ -1,60 +1,62 @@
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-
-if fn.empty(fn.glob(install_path)) > 0 then
-  Packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-  vim.cmd [[packadd packer.nvim]]
-end
-
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]]
+-- vim.cmd [[
+--   augroup packer_user_config
+--     autocmd!
+--     autocmd BufWritePost plugins.lua source <afile> | PackerSync
+--   augroup end
+-- ]]
 
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-  return
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
-
+vim.opt.rtp:prepend(lazypath)
 -- Have packer use a popup window
-packer.init {
-  display = {
-    open_fn = function()
-      return require("packer.util").float { border = "rounded" }
-    end,
-  },
-}
+-- packer.init {
+--   display = {
+--     open_fn = function()
+--       return require("packer.util").float { border = "rounded" }
+--     end,
+--   },
+-- }
+status_ok_lazy, lazy = pcall(require, "lazy")
+if not status_ok_lazy then return end
 
-return packer.startup( function (use)
-
-  use 'wbthomason/packer.nvim'
-  use 'lewis6991/impatient.nvim'
-  -- use 'nathom/filetype.nvim'
+lazy.setup({
+ 'lewis6991/impatient.nvim',
+  --'nathom/filetype.nvim',
 
   -- Telescope
-  use { 'nvim-lua/plenary.nvim' }
-  use { 'nvim-telescope/telescope.nvim', tag = '0.1.0' }
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+ 'nvim-lua/plenary.nvim',
+  { 'nvim-telescope/telescope.nvim', version = '0.1.0' },
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
 
   -- TreeSitter
-  use {
+  {
     'nvim-treesitter/nvim-treesitter',
-    after = 'telescope.nvim',
-    -- event = { 'BufRead', 'BufNewFile' },
-    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-    config = function() require("plugins.treesitter") end
-  }
-  use { 'JoosepAlviste/nvim-ts-context-commentstring', after = 'nvim-treesitter', }
-  use { 'windwp/nvim-ts-autotag', after = 'nvim-treesitter', }
-  use { 'p00f/nvim-ts-rainbow', after = 'nvim-treesitter', }
+    build = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+    config = function() require("plugins.treesitter") end,
+    dependencies = {
+      'JoosepAlviste/nvim-ts-context-commentstring',
+      'windwp/nvim-ts-autotag',
+      'p00f/nvim-ts-rainbow'
+    }
+  },
+  -- { 'JoosepAlviste/nvim-ts-context-commentstring', after = 'nvim-treesitter', },
+  -- { 'windwp/nvim-ts-autotag', after = 'nvim-treesitter', },
+  -- { 'p00f/nvim-ts-rainbow', after = 'nvim-treesitter', },
 
   -- File Tree
-  use {
+  {
     'kyazdani42/nvim-tree.lua',
-    keys = {"<C-b>"},
+    keys = "<C-b>",
     cmd = {
       "NvimTreeToggle",
       "NvimTreeOpen",
@@ -68,14 +70,14 @@ return packer.startup( function (use)
       "NvimTreeFindFile"
     },
     config = function() require("plugins.tree") end
-  }
+  },
 
   -- Visual Stuff
-  use {
+  {
     'kyazdani42/nvim-web-devicons',
     event = "BufWinEnter"
-  }
-  use {
+  },
+  {
     'goolord/alpha-nvim',
     cmd = {
       "Alpha",
@@ -83,127 +85,120 @@ return packer.startup( function (use)
     },
     event = "BufWinEnter",
     config = function() require("plugins.alpha") end
-  }
-  -- use 'christianchiarulli/nvcode-color-schemes.vim'
-  -- use 'rebelot/kanagawa.nvim'
-  use 'tiagovla/tokyodark.nvim'
-  use {
+  },
+  --'christianchiarulli/nvcode-color-schemes.vim',
+  --'rebelot/kanagawa.nvim',
+ 'tiagovla/tokyodark.nvim',
+  {
     'lukas-reineke/indent-blankline.nvim',
     event = { "BufRead", "BufNewFile", "BufWinEnter" },
     config = function() require("plugins.indent-line") end
-  }
-  use {
+  },
+  {
     'norcalli/nvim-colorizer.lua',
     ft = { 'html','css','sass','vim','typescript','typescriptreact'},
     config = function() require("plugins.colorizer") end
-  }
+  },
 
   -- Lines
-  use {
+  {
     'nvim-lualine/lualine.nvim',
     config = function() require("plugins.lualine") end
-  }
+  },
 
   -- Editing
-  use {
+  {
     'numToStr/Comment.nvim',
     event = { "BufRead", "BufNewFile" },
-    config = function () require("plugins.comment") end
-  }
-  use {
+    config = function() require("plugins.comment") end
+  },
+  {
     'tpope/vim-repeat',
     event = { "BufRead", "BufNewFile" },
-  }
-  use {
+  },
+  {
     'tpope/vim-surround',
     event = { "BufRead", "BufNewFile" },
-  }
-  use {
+  },
+  {
     'folke/which-key.nvim',
     keys = { "<Leader>", "'", '"', 'z' },
-    -- event = { "BufRead", "BufNewFile" },
-    config = function () require("plugins.which-key") end
-  }
-  use {
-    'unblevable/quick-scope',
-    config = function() require("plugins.quick-scope") end
-  }
-  use {
+    config = function() require("plugins.which-key") end
+  },
+  -- {
+  --   'unblevable/quick-scope',
+  --   config = function() require("plugins.quick-scope") end
+  -- },
+  {
     'andymass/vim-matchup',
     config = function() require("plugins.matchup") end
-  }
+  },
 
   -- CMP
-  use 'hrsh7th/nvim-cmp' -- The completion plugin
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer' -- buffer completions
-  use 'hrsh7th/cmp-path' -- path completions
-  use 'hrsh7th/cmp-cmdline' -- cmdline completions
-  use 'saadparwaiz1/cmp_luasnip' -- snippet completions
-  use 'jcha0713/cmp-tw2css'
+ 'hrsh7th/nvim-cmp', -- The completion plugin
+ 'hrsh7th/cmp-nvim-lsp',
+ 'hrsh7th/cmp-buffer', -- buffer completions
+ 'hrsh7th/cmp-path', -- path completions
+ 'hrsh7th/cmp-cmdline', -- cmdline completions
+ 'saadparwaiz1/cmp_luasnip', -- snippet completions
+ 'jcha0713/cmp-tw2css',
 
   -- Snippets
-  use 'L3MON4D3/LuaSnip' --snippet engine
-  use 'rafamadriz/friendly-snippets' -- a bunch of snippets to use
-  use {
+ 'L3MON4D3/LuaSnip', --snippet engine
+ 'rafamadriz/friendly-snippets', -- a bunch of snippets to use
+  {
     'mattn/emmet-vim',
     event = { "InsertEnter" },
-    config = function () require("plugins.emmet") end
-  }
-  use {
+    config = function() require("plugins.emmet") end
+  },
+  {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
-    config = function () require("plugins.autopairs") end
-  }
+    config = function() require("plugins.autopairs") end
+  },
 
   -- LSP
-  use { "williamboman/mason.nvim" }
-  use { "williamboman/mason-lspconfig.nvim" }
-  use {
+  { "williamboman/mason.nvim" },
+  { "williamboman/mason-lspconfig.nvim" },
+  {
     'neovim/nvim-lspconfig',
-    config =  function () require("lsp") end
-  } -- enable LSP
-  use {
+    config =  function() require("lsp") end
+  }, -- enable LSP,
+  {
     'kkharji/lspsaga.nvim',
     config = function() require("lspsaga") end
-  }
+  },
 
   -- Terminal
-  use {
+  {
     'akinsho/toggleterm.nvim',
-    tag = 'v2.*',
+    version = 'v2.*',
     cmd = { "ToggleTerm", "ToggleTermToggleAll" },
-    config = function () require("plugins.toggleterm") end
-  }
+    config = function() require("plugins.toggleterm") end
+  },
 
   -- Git
-  use {
+  {
     'lewis6991/gitsigns.nvim',
     event = { "BufRead", "BufNewFile" },
     config = function() require("plugins.gitsigns") end
-  }
-  use {
+  },
+  {
     'TimUntersberger/neogit',
     -- 'ten3roberts/neogit',
     cmd = { "Git", "Neogit" },
     config = function() require("plugins.neogit") end
-  }
+  },
 
   -- Language specific plugins
-  use {
+  {
     'lervag/vimtex',
     ft = { 'tex' },
     config = function() require("plugins.vimtex") end
-  }
-  use {
+  },
+  {
     'jbyuki/nabla.nvim',
     ft = { 'tex', 'md' },
     config = function() require("plugins.nabla") end
-  }
-
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if Packer_bootstrap then
-    require('packer').sync()
-  end
-end)
+  },
+})
