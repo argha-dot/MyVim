@@ -81,7 +81,7 @@ local opts = {
 function NextHunk()
   if vim.wo.diff then return ']c' end
   vim.schedule(function()
-    require("gitsigns").next_hunk()
+    require('gitsigns').next_hunk()
   end)
   return '<Ignore>'
 end

@@ -1,11 +1,3 @@
--- Autocommand that reloads neovim whenever you save the plugins.lua file
--- vim.cmd [[
---   augroup packer_user_config
---     autocmd!
---     autocmd BufWritePost plugins.lua source <afile> | PackerSync
---   augroup end
--- ]]
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -18,15 +10,8 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
--- Have packer use a popup window
--- packer.init {
---   display = {
---     open_fn = function()
---       return require("packer.util").float { border = "rounded" }
---     end,
---   },
--- }
-status_ok_lazy, lazy = pcall(require, "lazy")
+
+local status_ok_lazy, lazy = pcall(require, "lazy")
 if not status_ok_lazy then return end
 
 lazy.setup({
@@ -172,6 +157,9 @@ lazy.setup({
   -- Terminal
   {
     'akinsho/toggleterm.nvim',
+    keys = {
+      [[<C-\>]],
+    },
     version = 'v2.*',
     cmd = { "ToggleTerm", "ToggleTermToggleAll" },
     config = function() require("plugins.toggleterm") end
@@ -181,13 +169,13 @@ lazy.setup({
   {
     'lewis6991/gitsigns.nvim',
     event = { "BufRead", "BufNewFile" },
-    config = function() require("plugins.gitsigns") end
+    config = function() require('plugins.gitsigns') end
   },
   {
     'TimUntersberger/neogit',
     -- 'ten3roberts/neogit',
     cmd = { "Git", "Neogit" },
-    config = function() require("plugins.neogit") end
+    config = function() require('plugins.neogit') end
   },
 
   -- Language specific plugins
