@@ -16,7 +16,6 @@ if not status_ok_lazy then return end
 
 lazy.setup({
  'lewis6991/impatient.nvim',
-  --'nathom/filetype.nvim',
 
   -- Telescope
  'nvim-lua/plenary.nvim',
@@ -31,7 +30,6 @@ lazy.setup({
     dependencies = {
       'JoosepAlviste/nvim-ts-context-commentstring',
       'windwp/nvim-ts-autotag',
-      'p00f/nvim-ts-rainbow'
     }
   },
   -- { 'JoosepAlviste/nvim-ts-context-commentstring', after = 'nvim-treesitter', },
@@ -71,8 +69,6 @@ lazy.setup({
     event = "BufWinEnter",
     config = function() require("plugins.alpha") end
   },
-  --'christianchiarulli/nvcode-color-schemes.vim',
-  --'rebelot/kanagawa.nvim',
  'tiagovla/tokyodark.nvim',
   {
     'lukas-reineke/indent-blankline.nvim',
@@ -114,10 +110,10 @@ lazy.setup({
   --   'unblevable/quick-scope',
   --   config = function() require("plugins.quick-scope") end
   -- },
-  {
-    'andymass/vim-matchup',
-    config = function() require("plugins.matchup") end
-  },
+  -- {
+  --   'andymass/vim-matchup',
+  --   config = function() require("plugins.matchup") end
+  -- },
 
   -- CMP
  'hrsh7th/nvim-cmp', -- The completion plugin
@@ -129,7 +125,10 @@ lazy.setup({
  'jcha0713/cmp-tw2css',
 
   -- Snippets
- 'L3MON4D3/LuaSnip', --snippet engine
+  {
+    'L3MON4D3/LuaSnip', --snippet engine
+    config = function () require("plugins.luasnip") end,
+  },
  'rafamadriz/friendly-snippets', -- a bunch of snippets to use
   {
     'mattn/emmet-vim',

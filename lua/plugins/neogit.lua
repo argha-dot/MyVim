@@ -10,6 +10,7 @@ neogit.setup {
   disable_commit_confirmation = false,
   auto_refresh = true,
   disable_builtin_notifications = false,
+  console_timeout = 3000,
   commit_popup = {
     kind = "split",
   },

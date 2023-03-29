@@ -35,9 +35,9 @@ configs.setup {
     extended_mode = true,
     max_file_lines = nil,
   },
-  matchup = {
-    enable = true,
-  }
+  -- matchup = {
+  --   enable = true,
+  -- }
 }
 
 vim.o.foldmethod = 'expr'

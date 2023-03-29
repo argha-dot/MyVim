@@ -19,11 +19,11 @@ require'nvim-tree'.setup {
   update_focused_file = {
     enable      = true,
   },
-  ignore_ft_on_setup  = {
-    "startify",
-    "dashboard",
-    "alpha"
-  },
+  -- ignore_ft_on_setup  = {
+  --   "startify",
+  --   "dashboard",
+  --   "alpha"
+  -- },
   diagnostics = {
     enable = true,
     show_on_dirs = true,

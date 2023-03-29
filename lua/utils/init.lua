@@ -21,7 +21,7 @@ function utils.get_fileinfo()
   file["icon"] = ""
 
   if not utils.is_empty(file["name"]) then
-    file["icon"] = require("nvim-web-devicons").get_icon(file["file"], file["extension"], { default = true })
+    file["icon"] = require("nvim-web-devicons").get_icon_by_filetype(file["extension"], { default = true })
     if utils.is_empty(file["icon"]) then
       file["icon"] = ""
     end
