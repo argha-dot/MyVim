@@ -1,0 +1,6 @@
+require 'settings'
+require 'keymap'
+require 'autocmds'
+require 'disable'
+require 'colors'
+require 'plugins'
