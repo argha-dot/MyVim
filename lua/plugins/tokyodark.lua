@@ -1,5 +1,6 @@
 return { -- Theme inspired by Atom
   'tiagovla/tokyodark.nvim',
+  lazy = false,
   priority = 1000,
   config = function()
     vim.g.tokyodark_transparent_background = true
