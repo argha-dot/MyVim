@@ -13,6 +13,12 @@ return {
     "NvimTreeRefresh",
     "NvimTreeFindFile"
   },
+  dependencies = {
+    {
+      'kyazdani42/nvim-web-devicons',
+      event = "BufWinEnter"
+    },
+  },
   config = function()
     require("nvim-tree").setup {
       disable_netrw = true,
