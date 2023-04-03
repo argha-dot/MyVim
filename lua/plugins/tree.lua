@@ -1,6 +1,6 @@
 return {
   "kyazdani42/nvim-tree.lua",
-  keys = "<C-b>",
+  -- keys = "<C-b>",
   cmd = {
     "NvimTreeToggle",
     "NvimTreeOpen",

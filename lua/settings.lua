@@ -29,6 +29,7 @@ o.fileencoding = "utf-8"
 o.background = "dark"
 o.guicursor = ""
 o.hlsearch = true -- Highlight in real time
+o.incsearch = true
 o.showmode = false -- Remove messages like insert and such
 
 o.wrap = false

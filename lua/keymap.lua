@@ -59,6 +59,7 @@ utils.map('n', 's',         '"_d', opts)
 utils.map('n', 'S',         '"_D', opts)
 utils.map('n', '<Leader>p', '"0p', opts)
 utils.map('n', '<Leader>P', '"0P', opts)
+utils.map('x', '<Leader>p', '\"_dP', opts)
 
 -- Better J
 utils.map("n", "J", "mzJ`z", opts)
