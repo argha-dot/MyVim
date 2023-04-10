@@ -12,26 +12,39 @@ end
 return {
   'akinsho/toggleterm.nvim',
   version = "*",
+  keys = { [[<C-\>]] },
   -- enabled = false,
-  opts = {
-    size = 10,
-    hide_numbers = true,
-    shade_filetypes = {},
-    shade_terminals = true,
-    shading_factor = 2,
-    start_in_insert = true,
-    insert_mappings = true,
-    persist_size = true,
-    direction = "horizontal",
-    close_on_exit = true,
-    shell = osinfo(),
-    float_opts = {
-      border = "curved",
-      winblend = 0,
-      highlights = {
-        border = "Normal",
-        background = "Normal",
-      },
-    },
-  }
+  cmd = {
+    "ToggleTerm",
+    "ToggleTermToggleAll"
+  },
+  config = function()
+    -- code
+    require "toggleterm".setup {
+      size = 10,
+      open_mapping = [[<C-\>]],
+      shell = osinfo(),
+    }
+  end,
+  -- opts = {
+  --   size = 10,
+  --   hide_numbers = true,
+  --   open_mapping = [[<C-t>]],
+  --   shade_filetypes = {},
+  --   shade_terminals = true,
+  --   shading_factor = 2,
+  --   start_in_insert = true,
+  --   insert_mappings = true,
+  --   persist_size = true,
+  --   direction = "horizontal",
+  --   close_on_exit = true,
+  --   float_opts = {
+  --     border = "curved",
+  --     winblend = 0,
+  --     highlights = {
+  --       border = "Normal",
+  --       background = "Normal",
+  --     },
+  --   },
+  -- }
 }

@@ -3,7 +3,7 @@ local o = vim.o
 o.swapfile = false
 o.backup = false
 o.writebackup = false
-o.hidden = false
+o.hidden = true
 
 -- Splits
 o.splitright = true
@@ -11,7 +11,7 @@ o.splitbelow = true
 
 o.cmdheight = 0 -- Neovim commandline space
 o.pumheight = 10 -- Pop-up menu height
--- o.colorcolumn = '80'
+o.colorcolumn = '80'
 
 o.wildmenu = true
 
@@ -21,13 +21,14 @@ o.updatetime = 750
 o.mouse = 'a' -- Mouse support
 o.conceallevel = 1
 o.showtabline = 2
-o.laststatus = 2
 o.clipboard = "unnamedplus" -- Use system clipboard
 o.syntax = "enable"
 o.encoding = "utf-8"
 o.fileencoding = "utf-8"
 o.background = "dark"
+
 o.guicursor = ""
+
 o.hlsearch = true -- Highlight in real time
 o.incsearch = true
 o.showmode = false -- Remove messages like insert and such
@@ -50,3 +51,8 @@ o.breakindent = true -- Better word Wrapping
 -- fancy stuff
 vim.opt.listchars:append({eol = "↵"})
 o.list = true
+
+
+-- FILETYPE STUFF
+vim.g.do_filetype_lua = 1
+-- vim.g.did_load_filetypes = 0

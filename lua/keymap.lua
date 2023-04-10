@@ -81,4 +81,3 @@ utils.map('n', '<S-h>',     "^", opts)
 utils.map('n', '<S-l>',     "$", opts)
 
 utils.map('n', '<leader>r', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], {noremap = true})
-

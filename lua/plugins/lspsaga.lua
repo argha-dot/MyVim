@@ -8,7 +8,9 @@ return {
         border = "single"
       },
       symbol_in_winbar = {
-        enable = false
+        enable = false,
+        separator = "  ",
+        folder_level = 1
       }
     }
   end,

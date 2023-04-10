@@ -8,10 +8,22 @@ local func = luasnip.function_node
 
 local date = function () return {os.date('%Y-%m-%d')} end
 
-vim.api.nvim_set_keymap("i", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("s", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("i", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("s", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("i", "<c-j>",
+  "<cmd>lua require'luasnip'.jump(1)<CR>",
+  {noremap = true, silent = true}
+)
+vim.api.nvim_set_keymap("s", "<c-j>",
+  "<cmd>lua require'luasnip'.jump(1)<CR>",
+  {noremap = true, silent = true}
+)
+vim.api.nvim_set_keymap("i", "<c-k>",
+  "<cmd>lua require'luasnip'.jump(-1)<CR>",
+  {noremap = true, silent = true}
+)
+vim.api.nvim_set_keymap("s",
+  "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>",
+  {noremap = true, silent = true}
+)
 
 luasnip.add_snippets(nil, {
   all = {

@@ -87,3 +87,12 @@ vim.api.nvim_create_autocmd(
     command = [[ set formatoptions-=cro ]]
   }
 )
+
+vim.api.nvim_create_autocmd(
+  { "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost" },
+  {
+    callback = function()
+      require "lines".winbar_init()
+    end
+  }
+)

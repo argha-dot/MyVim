@@ -1,8 +1,20 @@
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d',        "<cmd>Lspsaga diagnostic_jump_prev<CR>", { desc = "Go to previous diagnostic message" })
-vim.keymap.set('n', ']d',        "<cmd>Lspsaga diagnostic_jump_next<CR>", { desc = "Go to next diagnostic message" })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+vim.keymap.set('n', '[d',
+  "<cmd>Lspsaga diagnostic_jump_prev<CR>", {
+    desc = "Go to previous diagnostic message"
+  }
+)
+vim.keymap.set('n', ']d',
+  "<cmd>Lspsaga diagnostic_jump_next<CR>", {
+    desc = "Go to next diagnostic message"
+  }
+)
+vim.keymap.set('n', '<leader>e',
+  vim.diagnostic.open_float, { desc = "Open floating diagnostic message" }
+)
+vim.keymap.set('n', '<leader>q',
+  vim.diagnostic.setloclist, { desc = "Open diagnostics list" }
+)
 
 
 local on_attach = function(_, bufnr)
@@ -14,17 +26,25 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
-  nmap('<leader>rn', "<cmd> Lspsaga rename<CR>", '[R]e[n]ame')
-  nmap('<leader>ca', "<cmd> Lspsaga code_action<CR>", '[C]ode [A]ction')
-  nmap('gd',         vim.lsp.buf.definition, '[G]oto [D]efinition')
-  nmap('gD',         vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-  nmap('<leader>D',  vim.lsp.buf.type_definition, 'Type [D]efinition')
-  nmap('gr',         require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-  nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-  nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+  nmap('<leader>rn', "<cmd> Lspsaga rename<CR>",
+    '[R]e[n]ame')
+  nmap('<leader>ca', "<cmd> Lspsaga code_action<CR>",
+    '[C]ode [A]ction')
+  nmap('gd',         vim.lsp.buf.definition,
+    '[G]oto [D]efinition')
+  nmap('gD',         vim.lsp.buf.declaration,
+    '[G]oto [D]eclaration')
+  nmap('<leader>D',  vim.lsp.buf.type_definition,
+    'Type [D]efinition')
+  nmap('gr',         require('telescope.builtin').lsp_references,
+    '[G]oto [R]eferences')
+  nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols,
+    '[D]ocument [S]ymbols')
+  nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols,
+    '[W]orkspace [S]ymbols')
 
   nmap('K',          "<cmd> Lspsaga hover_doc<CR>", 'Hover Documentation')
-  nmap('<C-k>',      vim.lsp.buf.signature_help, 'Signature Documentation')
+  -- nmap('<C-k>',      vim.lsp.buf.signature_help, 'Signature Documentation')
 
   -- Create a command `:Format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
@@ -46,7 +66,8 @@ local servers = {
   gopls = {}
 }
 
--- nvim-cmp supports additional completion capabilities, so broadcast that to servers
+-- nvim-cmp supports additional completion capabilities,
+-- so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 

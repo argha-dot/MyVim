@@ -6,6 +6,7 @@ return {
     'windwp/nvim-ts-autotag',
     'nvim-treesitter/nvim-treesitter-textobjects',
   },
+  -- event = "BufRead",
   -- config = function()
   --   pcall(require('nvim-treesitter.install').update { with_sync = true })
   -- end,
