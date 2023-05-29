@@ -37,6 +37,9 @@ o.wrap = false
 o.undofile = true -- Persist undos
 o.inccommand = "nosplit"
 
+o.ignorecase = true
+o.smartcase = true
+
 -- Scroll offset... just see the :h
 o.scrolloff = 8
 o.sidescrolloff = 8

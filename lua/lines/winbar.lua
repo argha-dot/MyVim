@@ -71,6 +71,8 @@ M.winbar_init = function()
 
   if not utils.is_empty(value) and vim.api.nvim_buf_get_option(0, "mod") then
     value = " " .. "%#LineNr#" .. "" .. "%*" .. value
+  else 
+    value = "  " .. value
   end
 
   local status, _ = pcall(vim.api.nvim_set_option_value, "winbar", value, { scope = "local" })
@@ -78,3 +80,4 @@ M.winbar_init = function()
 end
 
 return M
+

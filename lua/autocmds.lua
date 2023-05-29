@@ -92,7 +92,7 @@ vim.api.nvim_create_autocmd(
   { "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost" },
   {
     callback = function()
-      require "lines".winbar_init()
+      require "lines.winbar".winbar_init()
     end
   }
 )
