@@ -6,6 +6,20 @@ require('nvim-treesitter.configs').setup {
   },
   auto_install = false,
   highlight = { enable = true },
+  -- autotag = {
+  --   enable = true,
+  --   filetypes = {
+  --     'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx', 'rescript',
+  --     'xml',
+  --     'php',
+  --     'markdown',
+  --     'astro', 'glimmer', 'handlebars', 'hbs'
+  --   },
+  --   skip_tags = {
+  --     'area', 'base', 'br', 'col', 'command', 'embed', 'hr', 'img', 'slot',
+  --     'input', 'keygen', 'link', 'meta', 'param', 'source', 'track', 'wbr','menuitem'
+  --   }
+  -- },
   indent = { enable = true, disable = { 'python' } },
   incremental_selection = {
     enable = true,
@@ -16,12 +30,9 @@ require('nvim-treesitter.configs').setup {
       node_decremental = '<M-space>',
     },
   },
-  contenxt_ommentstring = {
+  context_commentstring = {
     enable = true,
     enable_autocmd = false
-  },
-  autotag = {
-    enable = true,
   },
   textobjects = {
     select = {
@@ -67,3 +78,5 @@ require('nvim-treesitter.configs').setup {
     },
   },
 }
+
+require'nvim-ts-autotag'.setup {}
