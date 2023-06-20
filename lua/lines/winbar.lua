@@ -23,6 +23,9 @@ local exclude_ft = {
   "terminal",
   "NvimTree",
   "qf",
+  "TelescopePrompt",
+  "Prompt",
+  "sagarename",
 }
 
 local something = {
