@@ -20,31 +20,25 @@ return {
   },
   config = function()
     -- code
+    local function some()
+      local screen_w = vim.opt.columns:get()
+      local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
+
+      return {
+        border = "single",
+        height = 17,
+        width = math.floor(screen_w),
+        col = 0,
+        row = screen_h - 20
+      }
+    end
     require "toggleterm".setup {
       size = 10,
       open_mapping = [[<C-\>]],
       shell = osinfo(),
+      close_on_exit = true,
+      direction = "float",
+      float_opts = some(),
     }
   end,
-  -- opts = {
-  --   size = 10,
-  --   hide_numbers = true,
-  --   open_mapping = [[<C-t>]],
-  --   shade_filetypes = {},
-  --   shade_terminals = true,
-  --   shading_factor = 2,
-  --   start_in_insert = true,
-  --   insert_mappings = true,
-  --   persist_size = true,
-  --   direction = "horizontal",
-  --   close_on_exit = true,
-  --   float_opts = {
-  --     border = "curved",
-  --     winblend = 0,
-  --     highlights = {
-  --       border = "Normal",
-  --       background = "Normal",
-  --     },
-  --   },
-  -- }
 }

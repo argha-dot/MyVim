@@ -70,8 +70,16 @@ cmp.setup {
     { name = 'cmp-tw2css' }
   },
   window = {
-    documentation = {
+    completion = {
+      winhighlight = "FloatBorder:None,CursorLine:PmenuSel,Normal:None",
+      scrollbar = false,
       border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+    },
+    documentation = {
+      -- border = border(None),
+      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+      winhighlight = "FloatBorder:None,CursorLine:PmenuSel,Normal:None",
+      max_height = 15,
     },
   }
 }

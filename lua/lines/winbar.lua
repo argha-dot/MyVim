@@ -26,6 +26,8 @@ local exclude_ft = {
   "TelescopePrompt",
   "Prompt",
   "sagarename",
+  "sagacodeaction",
+  "saga_codeaction",
 }
 
 local something = {
@@ -33,9 +35,29 @@ local something = {
   -- NvimTree = "some"
 }
 
+local is_floating_win = function(winid)
+  return vim.api.nvim_win_get_config(winid or 0).relative ~= ''
+end
+
+local is_ignored_win = function(winid)
+  winid = winid or 0
+
+  local bufnr = vim.api.nvim_win_get_buf(winid)
+  if is_floating_win(winid) then
+    return true
+  end
+
+  local wintype = vim.fn.win_gettype(winid)
+  if wintype ~= '' then
+    return true
+  end
+
+  return false
+end
+
 local excludes = function()
   local contains = false
-  if vim.tbl_contains(exclude_ft, vim.bo.filetype) then
+  if vim.tbl_contains(exclude_ft, vim.bo.filetype) or is_ignored_win(0) then
     vim.opt_local.winbar = nil
     contains = true
   end
@@ -62,12 +84,19 @@ M.winbar_init = function()
 
   local value = "%#" .. hl_grp .. "#" .. fileinfo["icon"] .. "%*" .. " " .. "%#LineNr#" .. fileinfo["name"] .. "%*"
 
-  local status_saga, saga_statusbar = pcall(require, "lspsaga.symbolwinbar")
-  local saga_statusbar_string = saga_statusbar:get_winbar()
-  if (status_saga and not utils.is_empty(saga_statusbar_string)) then
-    value = saga_statusbar_string
-  else
-    value = value
+  -- require("lspsaga")
+  -- local status_saga, saga_statusbar = pcall(require, "lspsaga.symbol.winbar")
+  -- if (status_saga and not utils.is_empty(saga_statusbar_string)) then
+  --   local saga_statusbar_string = saga_statusbar.get_winbar()
+  --   value = saga_statusbar_string
+  -- else
+  --   value = value
+  -- end
+
+  local status_navic, navic = pcall(require, "nvim-navic")
+  if (status_navic and navic.is_available()) then
+    -- print(navic.get_location())
+    value = navic.get_location()
   end
 
   value = " " .. value
@@ -83,4 +112,3 @@ M.winbar_init = function()
 end
 
 return M
-

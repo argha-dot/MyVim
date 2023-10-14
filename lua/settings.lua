@@ -5,9 +5,12 @@ o.backup = false
 o.writebackup = false
 o.hidden = true
 
+o.belloff = "all"
+
 -- Splits
 o.splitright = true
 o.splitbelow = true
+o.equalalways = false
 
 o.cmdheight = 0 -- Neovim commandline space
 o.pumheight = 10 -- Pop-up menu height
@@ -40,8 +43,9 @@ o.inccommand = "nosplit"
 o.ignorecase = true
 o.smartcase = true
 
--- Scroll offset... just see the :h
+-- Scroll stuff
 o.scrolloff = 8
+o.smoothscroll = true
 o.sidescrolloff = 8
 
 -- Numberline stuff
@@ -49,7 +53,11 @@ o.number = true
 o.relativenumber = true
 o.numberwidth = 2
 o.signcolumn = "yes"
+
+-- Indenting stuff
 o.breakindent = true -- Better word Wrapping
+vim.opt.showbreak = string.rep(" ", 3) -- Make it so that long lines wrap smartly
+vim.opt.linebreak = true
 
 -- fancy stuff
 vim.opt.listchars:append({eol = "↵"})

@@ -2,7 +2,7 @@ local utils = require'utils'
 local opts = { noremap = true, silent = true }
 
 if vim.g.neovide then
-  vim.o.guifont = "Delugia:h12"
+  vim.o.guifont = "Agave Nerd Font Mono:h13"
   vim.g.neovide_refresh_rate = 30
   vim.g.neovide_refresh_rate_idle = 5
   vim.g.neovide_fullscreen = false

@@ -17,7 +17,7 @@ vim.keymap.set('n', '<leader>q',
 )
 
 
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
   local nmap = function(keys, func, desc)
     if desc then
       desc = 'LSP: ' .. desc
@@ -46,9 +46,15 @@ local on_attach = function(_, bufnr)
   nmap('K',          "<cmd> Lspsaga hover_doc<CR>", 'Hover Documentation')
   -- nmap('<C-k>',      vim.lsp.buf.signature_help, 'Signature Documentation')
 
+  local stat_navic, navic = require("nvim-navic")
+  if stat_navic and client.server_capabilities.documentSymbolProvider then
+    navic.attach(client, bufnr)
+  end
+
   -- Create a command `:Format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-    vim.lsp.buf.format()
+     client.server_capabilities.documentFormattingProvider = false
+    vim.lsp.buf.format({async = true})
   end, { desc = 'Format current buffer with LSP' })
 end
 
@@ -89,3 +95,37 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
+local null_ls = require 'null-ls'
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+local sources = {
+  null_ls.builtins.formatting.jq,
+  null_ls.builtins.code_actions.eslint_d,
+  null_ls.builtins.formatting.prettierd,
+  -- null_ls.builtins.formatting.black,
+  -- null_ls.builtins.formatting.stylua,
+}
+
+null_ls.setup({
+  sources = sources,
+  log_level = "off",
+  on_attach = function(client, bufnr)
+    if client.supports_method("textDocument/formatting") then
+      vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = augroup,
+        buffer = bufnr,
+        callback = function()
+          -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+          -- on later neovim version, you should use vim.lsp.buf.format({ async = false }) instead
+          vim.lsp.buf.format({ async = false })
+        end,
+      })
+    end
+  end,
+})
+
+require("mason-null-ls").setup({
+  ensure_installed = nil,
+  automatic_installation = true,
+})

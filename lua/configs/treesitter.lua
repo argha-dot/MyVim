@@ -1,26 +1,25 @@
 require('nvim-treesitter.configs').setup {
-  ensure_installed = {"c", "lua", "rust", "html", "json", "json5", "latex",
+  ensure_installed = {
+    "c", "lua", "rust", "html", "json", "json5", "latex",
     "markdown", "python", "regex", "scss", "tsx", "typescript", "vim", "yaml",
     "toml", "css", "cpp", "dockerfile", "cmake", "go", "make",
     "markdown_inline", "go", "gomod"
   },
   auto_install = false,
   highlight = { enable = true },
-  -- autotag = {
-  --   enable = true,
-  --   filetypes = {
-  --     'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx', 'rescript',
-  --     'xml',
-  --     'php',
-  --     'markdown',
-  --     'astro', 'glimmer', 'handlebars', 'hbs'
-  --   },
-  --   skip_tags = {
-  --     'area', 'base', 'br', 'col', 'command', 'embed', 'hr', 'img', 'slot',
-  --     'input', 'keygen', 'link', 'meta', 'param', 'source', 'track', 'wbr','menuitem'
-  --   }
-  -- },
-  indent = { enable = true, disable = { 'python' } },
+  autotag = {
+    enable = true,
+    filetypes = {
+      'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx', 'rescript',
+      'xml', 'php', 'markdown',
+      'astro', 'glimmer', 'handlebars', 'hbs'
+    },
+    skip_tags = {
+      'area', 'base', 'br', 'col', 'command', 'embed', 'hr', 'img', 'slot',
+      'input', 'keygen', 'link', 'meta', 'param', 'source', 'track', 'wbr','menuitem'
+    }
+  },
+  indent = { enable = false, disable = { 'python' } },
   incremental_selection = {
     enable = true,
     keymaps = {
@@ -79,4 +78,4 @@ require('nvim-treesitter.configs').setup {
   },
 }
 
-require'nvim-ts-autotag'.setup {}
+-- require'nvim-ts-autotag'.setup {}
