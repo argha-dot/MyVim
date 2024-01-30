@@ -6,6 +6,8 @@ if vim.g.neovide then
   vim.g.neovide_refresh_rate = 30
   vim.g.neovide_refresh_rate_idle = 5
   vim.g.neovide_fullscreen = false
+  vim.g.neovide_unlink_border_highlights = true
+  vim.g.neovide_scroll_animation_length = 0
 
   utils.map('n', '<F11>', '<cmd>lua Fullscreen()<CR>', opts)
 end
