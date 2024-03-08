@@ -58,10 +58,12 @@ o.signcolumn = "yes"
 o.breakindent = true -- Better word Wrapping
 vim.opt.showbreak = string.rep(" ", 3) -- Make it so that long lines wrap smartly
 vim.opt.linebreak = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 
 -- fancy stuff
-vim.opt.listchars:append({eol = "↵"})
-o.list = true
+-- vim.opt.listchars:append({eol = "↵"})
+-- o.list = true
 
 
 -- FILETYPE STUFF
