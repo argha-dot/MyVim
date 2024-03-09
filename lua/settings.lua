@@ -1,5 +1,5 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = true
@@ -16,12 +16,13 @@ vim.opt.signcolumn = "yes"
 vim.opt.showmode = false
 
 -- Enable mouse mode, can be useful for resizing splits for example!
-vim.opt.mouse = 'a'
+vim.opt.mouse = "a"
 
 -- Sync clipboard between OS and Neovim.
-vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard = "unnamedplus"
 
 -- Enable break indent
+vim.opt.wrap = false
 vim.opt.breakindent = true
 vim.opt.showbreak = string.rep(" ", 3) -- Make it so that long lines wrap smartly
 vim.opt.linebreak = true
@@ -46,13 +47,13 @@ vim.opt.splitbelow = true
 -- Sets how neovim will display certain whitespace in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
-vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+-- vim.opt.list = true
+-- vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- Preview substitutions live, as you type!
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
-vim.opt.inccommand = 'nosplit'
+vim.opt.inccommand = "nosplit"
 
 -- Show which line your cursor is on
 vim.opt.cursorline = true
@@ -69,12 +70,11 @@ vim.opt.showtabline = 2
 
 vim.opt.cmdheight = 0 -- Neovim commandline space
 vim.opt.pumheight = 10 -- Pop-up menu height
-vim.opt.colorcolumn = '80'
+vim.opt.colorcolumn = "80"
 
 vim.opt.wildmenu = true
 
-vim.cmd [[
+vim.cmd([[
   set path+=**
   set whichwrap+=<,>,[,],h,l"
-]]
-
+]])
