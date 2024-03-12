@@ -30,6 +30,9 @@ require("lazy").setup({
 	require("plugins.colorizer"),
 
 	require("plugins.todo-comments"),
+
+	require("plugins.lines"),
+
 	require("plugins.treesitter"),
 
 	require("plugins.indent"),

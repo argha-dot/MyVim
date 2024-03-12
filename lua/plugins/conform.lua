@@ -4,12 +4,12 @@ return { -- Autoformat
 	cmd = { "ConformInfo" },
 	keys = {
 		{
-			"<leader>fb",
+			"<leader>bf",
 			function()
 				require("conform").format({ async = true, lsp_fallback = true })
 			end,
 			mode = "",
-			desc = "[F]ormat [B]uffer",
+			desc = "[B]buffer [F]ormat",
 		},
 	},
 	opts = {
@@ -32,11 +32,14 @@ return { -- Autoformat
 				end
 			end,
 			rust = { "rustfmt" },
-			["*"] = { "codespell" },
+			javascript = { { "prettierd", "prettier" }, "eslint_d" },
+			javascriptreact = { { "prettierd", "prettier" }, "eslint_d" },
+			typescript = { { "prettierd", "prettier" }, "eslint_d" },
+			typescriptreact = { { "prettierd", "prettier" }, "eslint_d" },
+			gleam = { "gleam" },
 			--
 			-- You can use a sub-list to tell conform to run *until* a formatter
 			-- is found.
-			-- javascript = { { "prettierd", "prettier" } },
 		},
 		formatters = {},
 	},

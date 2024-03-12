@@ -66,7 +66,6 @@ vim.opt.smoothscroll = true
 vim.g.do_filetype_lua = 1
 
 vim.opt.conceallevel = 1
-vim.opt.showtabline = 2
 
 vim.opt.cmdheight = 0 -- Neovim commandline space
 vim.opt.pumheight = 10 -- Pop-up menu height

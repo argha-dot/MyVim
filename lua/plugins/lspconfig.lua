@@ -56,11 +56,11 @@ return {
 
 				-- Fuzzy find all the symbols in your current document.
 				--  Symbols are things like variables, functions, types, etc.
-				map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+				map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]symbols")
 
 				-- Fuzzy find all the symbols in your current workspace
 				--  Similar to document symbols, except searches over your whole project.
-				map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+				map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]symbols")
 
 				-- Rename the variable under your cursor
 				--  Most Language Servers support renaming across files, etc.
@@ -73,8 +73,6 @@ return {
 				-- Opens a popup that displays documentation about the word under your cursor
 				--  See `:help K` for why this keymap
 				map("K", vim.lsp.buf.hover, "Hover Documentation")
-
-				vim.lsp.inlay_hint.enable(0, true)
 
 				if vim.lsp.inlay_hint then
 					vim.keymap.set("n", "<leader>ih", function()
@@ -102,6 +100,14 @@ return {
 						buffer = event.buf,
 						callback = vim.lsp.buf.clear_references,
 					})
+				end
+				if client and client.server_capabilities.inlayHintProvider then
+					vim.lsp.inlay_hint.enable(event.buf, true)
+					vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#535353" })
+				end
+
+				if client and client.server_capabilities.documentSymbolProvider then
+					require("nvim-navic").attach(client, event.buf)
 				end
 			end,
 		})
@@ -185,6 +191,10 @@ return {
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			"stylua", -- Used to format lua code
+			"prettierd",
+			"prettier",
+			"eslint_d",
+			"gleam",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
