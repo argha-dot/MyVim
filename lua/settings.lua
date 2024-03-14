@@ -19,7 +19,7 @@ vim.opt.showmode = false
 vim.opt.mouse = "a"
 
 -- Sync clipboard between OS and Neovim.
-vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard = "unnamedplus"
 
 -- Enable break indent
 vim.opt.wrap = false

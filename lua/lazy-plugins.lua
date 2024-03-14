@@ -14,6 +14,12 @@ require("lazy").setup({
 	-- "gc" to comment visual regions/lines
 	{ "numToStr/Comment.nvim", opts = {} },
 	{ "windwp/nvim-autopairs", opts = {} },
+	{
+		"EtiamNullam/deferred-clipboard.nvim",
+		opts = {
+			lazy = true,
+		},
+	},
 
 	require("plugins.surround"),
 	-- require("plugins.tree"),
