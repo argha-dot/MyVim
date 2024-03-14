@@ -77,11 +77,12 @@ return {
 					if props.focused then
 						local len = #(navic.get_data(props.buf) or {})
 						for i, item in ipairs(navic.get_data(props.buf) or {}) do
+							local title = #item.name > 20 and string.sub(item.name, 1, 17) .. "..." or item.name
 							if i <= 2 then
 								table.insert(res, {
 									{ " > ", group = "NavicSeparator" },
 									{ item.icon, group = "NavicIcons" .. item.type },
-									{ item.name, group = "NavicText" },
+									{ title, group = "NavicText" },
 								})
 							end
 
@@ -96,7 +97,7 @@ return {
 								table.insert(res, {
 									{ " > ", group = "NavicSeparator" },
 									{ item.icon, group = "NavicIcons" .. item.type },
-									{ item.name, group = "NavicText" },
+									{ title, group = "NavicText" },
 								})
 							end
 						end

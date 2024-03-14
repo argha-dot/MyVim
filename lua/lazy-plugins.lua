@@ -16,7 +16,8 @@ require("lazy").setup({
 	{ "windwp/nvim-autopairs", opts = {} },
 
 	require("plugins.surround"),
-	require("plugins.tree"),
+	-- require("plugins.tree"),
+	require("plugins.neo-tree"),
 	require("plugins.gitsigns"),
 	require("plugins.neogit"),
 	require("plugins.which-key"),

@@ -6,7 +6,6 @@ local HEIGHT_RATIO = 0.5 -- You can change this
 local WIDTH_RATIO = 0.5 -- You can change this too
 
 -- global
-vim.api.nvim_set_keymap("n", "<C-b>", ":NvimTreeToggle<cr>", { silent = true, noremap = true })
 
 local function on_attach(bufnr)
 	local api = require("nvim-tree.api")
