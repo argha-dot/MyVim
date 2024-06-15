@@ -131,7 +131,22 @@ return {
 		local servers = {
 			-- clangd = {},
 			-- gopls = {},
-			pyright = {},
+			emmet_language_server = {
+				filetypes = {
+					"css",
+					"eruby",
+					"html",
+					"javascript",
+					"javascriptreact",
+					"less",
+					"sass",
+					"scss",
+					"pug",
+					"typescriptreact",
+					"rust",
+				},
+			},
+			-- pyright = {},
 			ruff_lsp = {
 				init_options = {
 					settings = {
@@ -194,7 +209,7 @@ return {
 			"prettierd",
 			"prettier",
 			"eslint_d",
-			"gleam",
+			"ruff",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

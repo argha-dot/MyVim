@@ -93,7 +93,7 @@ return {
 								})
 							end
 
-							if i > len - 2 then
+							if i > len - 2 and len >= 3 then
 								table.insert(res, {
 									{ " > ", group = "NavicSeparator" },
 									{ item.icon, group = "NavicIcons" .. item.type },

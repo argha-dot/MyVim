@@ -16,9 +16,12 @@ require("lazy").setup({
 	{ "windwp/nvim-autopairs", opts = {} },
 	{
 		"EtiamNullam/deferred-clipboard.nvim",
-		opts = {
-			lazy = true,
-		},
+		config = function()
+			require("deferred-clipboard").setup({
+				lazy = true,
+				fallback = "unnamed,unnamedplus",
+			})
+		end,
 	},
 
 	require("plugins.surround"),

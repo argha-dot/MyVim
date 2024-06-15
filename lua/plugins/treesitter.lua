@@ -53,6 +53,7 @@ return {
 						"typescript",
 						"javascriptreact",
 						"typescriptreact",
+						"rust",
 						"svelte",
 						"vue",
 						"tsx",
