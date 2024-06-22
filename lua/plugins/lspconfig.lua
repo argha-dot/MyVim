@@ -74,12 +74,25 @@ return {
 				--  See `:help K` for why this keymap
 				map("K", vim.lsp.buf.hover, "Hover Documentation")
 
+				--- Jump to the previous diagnostic message and open the diagnostic message
+				map("[d", function()
+					vim.diagnostic.jump({ count = -1, float = true })
+				end, "Go to previous [D]iagnostic message")
+
+				--- Jump to the next diagnostic message and open the diagnostic message
+				map("]d", function()
+					vim.diagnostic.jump({ count = 1, float = true })
+				end, "Go to next [D]iagnostic message")
+
+				--- Open the diagnostic message
+				map("<leader>e", vim.diagnostic.open_float, "Show diagnostic [E]rror messages")
+
 				if vim.lsp.inlay_hint then
 					vim.keymap.set("n", "<leader>ih", function()
-						if vim.lsp.inlay_hint.is_enabled(0) then
-							vim.lsp.inlay_hint.enable(0, false)
+						if vim.lsp.inlay_hint.is_enabled() then
+							vim.lsp.inlay_hint.enable(false)
 						else
-							vim.lsp.inlay_hint.enable(0, true)
+							vim.lsp.inlay_hint.enable(true)
 						end
 					end, { desc = "Toggle [I]nlay [H]hints" })
 				end
@@ -102,7 +115,7 @@ return {
 					})
 				end
 				if client and client.server_capabilities.inlayHintProvider then
-					vim.lsp.inlay_hint.enable(event.buf, true)
+					vim.lsp.inlay_hint.enable(true)
 					vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#535353" })
 				end
 

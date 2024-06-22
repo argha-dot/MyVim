@@ -1,9 +1,12 @@
 vim.keymap.set("n", "<Esc>", "<cmd>noh<CR>")
 
 -- Diagnostic keymaps
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
+--
+-- vim.keymap.set("n", "]d", function()
+-- 	vim.diagnostic.jump({ count = 1, float = true })
+-- end, { desc = "Go to next [D]iagnostic message" })
+
+-- vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 
 -- Disable arrow keys in normal mode
 vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
@@ -11,11 +14,21 @@ vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
 vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
+-- Split screen
+vim.keymap.set("n", "<Leader>_", ":spl<CR>", { desc = "Split Horizontally" })
+vim.keymap.set("n", "<Leader>|", ":vsp<CR>", { desc = "Split Vertically" })
+
 --  See `:help wincmd` for a list of all window commands
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+
+-- Buffer resizing
+vim.keymap.set("n", "<M-h>", "<cmd>vertical resize -2<CR>", { desc = "Resize Vertically" })
+vim.keymap.set("n", "<M-l>", "<cmd>vertical resize +2<CR>", { desc = "Resize Vertically" })
+vim.keymap.set("n", "<M-j>", "<cmd>resize +2<CR>", { desc = "Resize Horizontally" })
+vim.keymap.set("n", "<M-k>", "<cmd>resize -2<CR>", { desc = "Resize Horizontally" })
 
 -- Break Lines
 vim.keymap.set("n", "Z", "R<CR><Esc>", { desc = "Break Lines in two" })
@@ -23,12 +36,6 @@ vim.keymap.set("n", "Z", "R<CR><Esc>", { desc = "Break Lines in two" })
 -- I hate Esc
 vim.keymap.set("i", "<C-c>", "<esc>", { desc = "Control-C is Escape in Insert Mode" })
 vim.keymap.set("v", "<C-c>", "<esc>", { desc = "Control-C is Escape in Visual Mode" })
-
--- Buffer resizing
-vim.keymap.set("n", "<M-h>", "<cmd>vertical resize -2<CR>", { desc = "Resize Vertically" })
-vim.keymap.set("n", "<M-l>", "<cmd>vertical resize +2<CR>", { desc = "Resize Vertically" })
-vim.keymap.set("n", "<M-j>", "<cmd>resize +2<CR>", { desc = "Resize Horizontally" })
-vim.keymap.set("n", "<M-k>", "<cmd>resize -2<CR>", { desc = "Resize Horizontally" })
 
 -- Better indenting
 vim.keymap.set("v", "<", "<gv", { desc = "" })

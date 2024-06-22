@@ -15,13 +15,8 @@ require("lazy").setup({
 	{ "numToStr/Comment.nvim", opts = {} },
 	{ "windwp/nvim-autopairs", opts = {} },
 	{
-		"EtiamNullam/deferred-clipboard.nvim",
-		config = function()
-			require("deferred-clipboard").setup({
-				lazy = true,
-				fallback = "unnamed,unnamedplus",
-			})
-		end,
+		"christoomey/vim-tmux-navigator",
+		lazy = false,
 	},
 
 	require("plugins.surround"),
@@ -29,7 +24,7 @@ require("lazy").setup({
 	require("plugins.neo-tree"),
 	require("plugins.gitsigns"),
 	require("plugins.neogit"),
-	require("plugins.which-key"),
+	-- require("plugins.which-key"),
 	require("plugins.telescope"),
 	require("plugins.lspconfig"),
 	require("plugins.conform"),

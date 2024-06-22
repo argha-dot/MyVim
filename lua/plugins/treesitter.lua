@@ -12,16 +12,15 @@ return {
 			---@diagnostic disable-next-line: missing-fields
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = {
-					"gleam",
 					"c",
 					"lua",
 					"rust",
 					"html",
 					"json",
 					"json5",
-					"latex",
 					"vimdoc",
 					"markdown",
+					"markdown_inline",
 					"python",
 					"regex",
 					"scss",
@@ -35,11 +34,9 @@ return {
 					"dockerfile",
 					"cmake",
 					"go",
+					"gomod",
 					"make",
 					"bash",
-					"markdown_inline",
-					"go",
-					"gomod",
 				},
 				-- Autoinstall languages that are not installed
 				auto_install = true,

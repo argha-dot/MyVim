@@ -12,7 +12,7 @@ end
 return {
 	"akinsho/toggleterm.nvim",
 	version = "*",
-	keys = { [[<C-\>]] },
+	keys = { [[<M-\>]] },
 	-- enabled = false,
 	cmd = {
 		"ToggleTerm",
@@ -34,7 +34,7 @@ return {
 		end
 		require("toggleterm").setup({
 			size = 10,
-			open_mapping = [[<C-\>]],
+			open_mapping = [[<M-\>]],
 			shell = osinfo(),
 			close_on_exit = true,
 			direction = "float",
