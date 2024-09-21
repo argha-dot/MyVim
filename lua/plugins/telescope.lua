@@ -28,9 +28,6 @@ return {
 					path_display = { "smart" },
 					mappings = {
 						i = {
-							["<C-n>"] = actions.cycle_history_next,
-							["<C-p>"] = actions.cycle_history_prev,
-
 							["<Tab>"] = actions.move_selection_next,
 							["<S-Tab>"] = actions.move_selection_previous,
 
@@ -46,41 +43,45 @@ return {
 
 							["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
 						},
-					},
-					n = {
-						["<Esc>"] = actions.close,
-						["<CR>"] = actions.select_default,
-						["<C-x>"] = actions.select_horizontal,
-						["<C-v>"] = actions.select_vertical,
-						["<C-t>"] = actions.select_tab,
+						n = {
+							["<Esc>"] = actions.close,
+							["<CR>"] = actions.select_default,
+							["<C-x>"] = actions.select_horizontal,
+							["<C-v>"] = actions.select_vertical,
+							["<C-t>"] = actions.select_tab,
 
-						["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-						["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-						["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-						["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+							["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
+							["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
+							["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
+							["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 
-						["j"] = actions.move_selection_next,
-						["k"] = actions.move_selection_previous,
-						["H"] = actions.move_to_top,
-						["M"] = actions.move_to_middle,
-						["L"] = actions.move_to_bottom,
+							["j"] = actions.move_selection_next,
+							["k"] = actions.move_selection_previous,
+							["H"] = actions.move_to_top,
+							["M"] = actions.move_to_middle,
+							["L"] = actions.move_to_bottom,
 
-						["<Down>"] = actions.move_selection_next,
-						["<Up>"] = actions.move_selection_previous,
-						["gg"] = actions.move_to_top,
-						["G"] = actions.move_to_bottom,
+							["<Down>"] = actions.move_selection_next,
+							["<Up>"] = actions.move_selection_previous,
+							["gg"] = actions.move_to_top,
+							["G"] = actions.move_to_bottom,
 
-						["<C-u>"] = actions.preview_scrolling_up,
-						["<C-d>"] = actions.preview_scrolling_down,
+							["<C-u>"] = actions.preview_scrolling_up,
+							["<C-d>"] = actions.preview_scrolling_down,
 
-						["<PageUp>"] = actions.results_scrolling_up,
-						["<PageDown>"] = actions.results_scrolling_down,
+							["<PageUp>"] = actions.results_scrolling_up,
+							["<PageDown>"] = actions.results_scrolling_down,
 
-						["?"] = actions.which_key,
+							["?"] = actions.which_key,
+						},
 					},
 				},
 				pickers = {
 					find_files = {
+						theme = "dropdown",
+						previewer = false,
+					},
+					buffers = {
 						theme = "dropdown",
 						previewer = false,
 					},
@@ -113,6 +114,7 @@ return {
 			local builtin = require("telescope.builtin")
 
 			vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "[S]earch [F]iles" })
+			vim.keymap.set("n", "<leader>b", builtin.buffers, { desc = "[S]earch [B]uffers" })
 			vim.keymap.set("n", "<leader>F", builtin.live_grep, { desc = "[S]earch by [G]rep" })
 			vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
 			vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })

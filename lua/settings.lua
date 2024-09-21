@@ -73,6 +73,8 @@ vim.opt.colorcolumn = "80"
 
 vim.opt.wildmenu = true
 
+vim.opt.swapfile = false
+
 vim.cmd([[
   set path+=**
   set whichwrap+=<,>,[,],h,l"

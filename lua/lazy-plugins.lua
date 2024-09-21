@@ -31,6 +31,7 @@ require("lazy").setup({
 	require("plugins.cmp"),
 	require("plugins.toggleterm"),
 
+	-- require("plugins.markview"),
 	require("plugins.colorscheme"),
 	require("plugins.colorizer"),
 
@@ -41,6 +42,8 @@ require("lazy").setup({
 	require("plugins.treesitter"),
 
 	require("plugins.indent"),
+
+	require("plugins.supermaven"),
 }, {
 	ui = {
 		-- If you have a Nerd Font, set icons to an empty table which will use the

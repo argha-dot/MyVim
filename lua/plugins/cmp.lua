@@ -148,6 +148,7 @@ return { -- Autocompletion
 				{ name = "path" },
 				{ name = "buffer" },
 				{ name = "cmp-tw2css" },
+				{ name = "supermaven" },
 			},
 		})
 
@@ -166,6 +167,7 @@ return { -- Autocompletion
 					},
 				},
 			}),
+			matching = { disallow_symbol_nonprefix_matching = true },
 		})
 
 		cmp.setup.cmdline("/", {
