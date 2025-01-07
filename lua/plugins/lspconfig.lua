@@ -76,12 +76,14 @@ return {
 
 				--- Jump to the previous diagnostic message and open the diagnostic message
 				map("[d", function()
-					vim.diagnostic.jump({ count = -1, float = true })
+					vim.diagnostic.goto_prev()
+					-- vim.diagnostic.jump({ count = -1, float = true })
 				end, "Go to previous [D]iagnostic message")
 
 				--- Jump to the next diagnostic message and open the diagnostic message
 				map("]d", function()
-					vim.diagnostic.jump({ count = 1, float = true })
+					vim.diagnostic.goto_next()
+					-- vim.diagnostic.jump({ count = 1, float = true })
 				end, "Go to next [D]iagnostic message")
 
 				--- Open the diagnostic message

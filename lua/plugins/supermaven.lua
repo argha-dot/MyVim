@@ -5,6 +5,7 @@ return {
 			keymaps = {
 				clear_suggestion = "<C-x>",
 			},
+			log_level = "off",
 		})
 	end,
 }
